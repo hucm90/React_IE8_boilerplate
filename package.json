@@ -1,0 +1,18 @@
+{
+  "name": "ES6-IE8-boilerplate",
+  "version": "1.0.0",
+  "description": "ES6的IE8兼容配置",
+  "main": "index.js",
+  "repository": "https://gitee.com/menhal/ES6-IE8-boilerplate",
+  "author": "Kenny",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.6.1",
+    "es3ify-loader": "^0.2.0",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^1.15.0",
+    "webpack-dev-server": "^1.16.5"
+  }
+}
