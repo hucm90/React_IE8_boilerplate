@@ -1,4 +1,8 @@
 # ES6-IE8-boilerplate
+
+# http://es6.ruanyifeng.com/#docs/symbol
+
+
 ES6 IE8兼容配置
 
 1. class语法Object.defineProperty: babel需要是loose模式

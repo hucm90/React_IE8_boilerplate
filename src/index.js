@@ -7,14 +7,14 @@ const ReactDOM = require('react-dom');
 //let + const
 const a = '世界';
 
-for(let i =0; i< 10; i++){
+for (let i = 0; i < 10; i++) {
     setTimeout(function () {
         console.log(i)
     }, 0)
 }
 
 //class
-let p1 = new Person("孟浩");
+let p1 = new Person("云小飞");
 //string template
 p1.say(`你好${a}`)
 
@@ -36,7 +36,7 @@ const sleep = (time) => {
 };
 
 const start = async () => {
-    for (let i of [1,2,3]) {
+    for (let i of [1, 2, 3]) {
         console.log(`当前是第${i}次等待..`);
         await sleep(1000);
     }
@@ -59,8 +59,43 @@ let appInjectPoint = document.createElement("div");
 appInjectPoint.id = "app";
 document.body.appendChild(appInjectPoint);
 
-let App = () =>(
-    <div>2312312</div>
+let Clock = (props) => (
+    <span>{props.date}</span>
+)
+
+class Welcome extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {date: new Date()};
+    }
+
+    componentDidMount() {
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    tick() {
+        this.setState({
+            date: new Date()
+        });
+    }
+
+    render() {
+        return (
+            <h1>Hello, {this.props.name}. It's <Clock date={this.state.date.toLocaleTimeString()}/></h1>
+        );
+    }
+}
+
+
+let App = () => (
+    <Welcome name={p1.name}/>
 )
 
 ReactDOM.render(
