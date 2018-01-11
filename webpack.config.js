@@ -13,6 +13,15 @@ module.exports = {
         path: BUILD_PATH,
         filename: 'js/[name].js'
     },
+    //如果不需要react这段可以去掉
+    resolve: {
+        alias: {
+            "react": "anujs/dist/ReactIE.js",
+            "react-dom": "anujs/dist/ReactIE.js",
+            'prop-types': 'anujs/lib/ReactPropTypes',
+            'create-react-class': 'anujs/lib/createClass'
+        }
+    },
     module: {
         loaders: [{
             test: /\.js$/,

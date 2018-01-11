@@ -1,6 +1,8 @@
 //import and export
 import Person from "./components/Person"
 import {Apple} from "./components/Food"
+const React = require('react');
+const ReactDOM = require('react-dom');
 
 //let + const
 const a = '世界';
@@ -50,3 +52,18 @@ console.log(obj)
 
 let [a1, a2, ...a3] = [1, 2, 3, 4];
 console.log(a1, a2, a3)
+
+
+//ReactJS
+let appInjectPoint = document.createElement("div");
+appInjectPoint.id = "app";
+document.body.appendChild(appInjectPoint);
+
+let App = () =>(
+    <div>2312312</div>
+)
+
+ReactDOM.render(
+    <App />,
+    appInjectPoint
+)
