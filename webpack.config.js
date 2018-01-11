@@ -46,6 +46,7 @@ module.exports = {
     ],
     devServer: {
         disableHostCheck: true,
+        historyApiFallback: true,
         progress: true,
         outputPath : BUILD_PATH,
         host : "0.0.0.0",
