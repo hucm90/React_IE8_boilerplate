@@ -1,6 +1,7 @@
 //import and export
 import Person from "./components/Person"
 import {Apple} from "./components/Food"
+import PropTypes from 'prop-types';
 const React = require('react');
 const ReactDOM = require('react-dom');
 
@@ -63,9 +64,18 @@ let Clock = (props) => (
     <span>{props.date}</span>
 )
 
+Clock.propTypes = {
+    date : PropTypes.bool.isRequired
+}
+
+Clock.defaultProps = {
+    date : "12312"
+}
+
 class Welcome extends React.Component {
     constructor(props) {
         super(props);
+        this.isToggleOn = false;
         this.state = {date: new Date()};
     }
 
@@ -86,9 +96,19 @@ class Welcome extends React.Component {
         });
     }
 
+    onClick () {
+        this.setState({
+            isToggleOn : !this.state.isToggleOn
+        })
+    }
+
     render() {
         return (
-            <h1>Hello, {this.props.name}. It's <Clock date={this.state.date.toLocaleTimeString()}/></h1>
+            <div>
+                <h1>Hello, {this.props.name}. </h1>
+                <p>It's <Clock date={this.state.date.toLocaleTimeString()}/></p>
+                <p><button onClick={this.onClick.bind(this)}>{this.state.isToggleOn ? 'ON' : 'OFF'}</button></p>
+            </div>
         );
     }
 }
