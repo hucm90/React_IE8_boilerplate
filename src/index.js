@@ -5,6 +5,12 @@ import {Apple} from "./components/Food"
 //let + const
 const a = '世界';
 
+for(let i =0; i< 10; i++){
+    setTimeout(function () {
+        console.log(i)
+    }, 0)
+}
+
 //class
 let p1 = new Person("孟浩");
 //string template
@@ -41,3 +47,6 @@ start();
 let {name} = p1;
 const obj = {name}
 console.log(obj)
+
+let [a1, a2, ...a3] = [1, 2, 3, 4];
+console.log(a1, a2, a3)

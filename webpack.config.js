@@ -5,7 +5,10 @@ const webpack = require('webpack'),
 const BUILD_PATH = path.resolve(__dirname, 'build');
 
 module.exports = {
-    entry: ['babel-polyfill', './src/index.js'],
+    entry: {
+        polyfill : 'babel-polyfill',
+        main : './src/index.js'
+    },
     output: {
         path: BUILD_PATH,
         filename: 'js/[name].js'
