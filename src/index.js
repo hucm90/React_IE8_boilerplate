@@ -8,7 +8,7 @@ const ReactDOM = require('react-dom');
 //let + const
 const a = '世界';
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 3; i++) {
     setTimeout(function () {
         console.log(i)
     }, 0)
@@ -30,7 +30,7 @@ console.log(double())
 //promise await async
 const sleep = (time) => {
     return new Promise(function (resolve, reject) {
-        setTimeout(function () {
+        setTimeout(() => {
             resolve('ok');
         }, time);
     })
@@ -124,7 +124,8 @@ document.body.appendChild(appInjectPoint);
 //     <Welcome name={p1.name}/>
 // )
 
-const App = React.createClass({
+//React Router
+class App extends React.Component{
     render() {
         return (
             <div>
@@ -137,30 +138,22 @@ const App = React.createClass({
             </div>
         )
     }
-})
+}
 
-const About = React.createClass({
-    render() {
-        return <h3>About</h3>
-    }
-})
+const About = () => (
+    <h3>About</h3>
+)
 
-const Inbox = React.createClass({
-    render() {
-        return (
-            <div>
-                <h2>Inbox</h2>
-                {this.props.children || "Welcome to your Inbox"}
-            </div>
-        )
-    }
-})
+const Inbox = (props) => (
+    <div>
+        <h2>Inbox</h2>
+        {props.children || "Welcome to your Inbox"}
+    </div>
+)
 
-const Message = React.createClass({
-    render() {
-        return <h3>Message {this.props.params.id}</h3>
-    }
-})
+const Message = (props) => (
+    <h3>Message {props.params.id}</h3>
+)
 
 window.onload = () =>{
     ReactDOM.render(
