@@ -56,140 +56,122 @@ console.log(a1, a2, a3)
 
 
 //ReactJS
-// import {
-//     Router as Router,
-//     Route,
-//     Link
-// } from 'react-router'
+import { Router, Route, Link } from 'react-router'
+// import Router from "react-router/es/Router"
 
 let appInjectPoint = document.createElement("div");
 appInjectPoint.id = "app";
 document.body.appendChild(appInjectPoint);
 
-let Clock = (props) => (
-    <span>{props.date}</span>
-)
+// let Clock = (props) => (
+//     <span>{props.date}</span>
+// )
+//
+// Clock.propTypes = {
+//     date : PropTypes.bool.isRequired
+// }
+//
+// Clock.defaultProps = {
+//     date : "12312"
+// }
+//
+// class Welcome extends React.Component {
+//     constructor(props) {
+//         super(props);
+//         this.isToggleOn = false;
+//         this.state = {date: new Date()};
+//     }
+//
+//     componentDidMount() {
+//         this.timerID = setInterval(
+//             () => this.tick(),
+//             1000
+//         );
+//     }
+//
+//     componentWillUnmount() {
+//         clearInterval(this.timerID);
+//     }
+//
+//     tick() {
+//         this.setState({
+//             date: new Date()
+//         });
+//     }
+//
+//     onClick () {
+//         this.setState({
+//             isToggleOn : !this.state.isToggleOn
+//         })
+//     }
+//
+//     render() {
+//         return (
+//             <div>
+//                 <h1>Hello, {this.props.name}. </h1>
+//                 <p>It's <Clock date={this.state.date.toLocaleTimeString()}/></p>
+//                 <p><button onClick={this.onClick.bind(this)}>{this.state.isToggleOn ? 'ON' : 'OFF'}</button></p>
+//                 <ul>
+//                     {[1,2,3].map((index)=><li>{index}</li>)}
+//                 </ul>
+//             </div>
+//         );
+//     }
+// }
+//
+//
+// let App = () => (
+//     <Welcome name={p1.name}/>
+// )
 
-Clock.propTypes = {
-    date : PropTypes.bool.isRequired
-}
-
-Clock.defaultProps = {
-    date : "12312"
-}
-
-class Welcome extends React.Component {
-    constructor(props) {
-        super(props);
-        this.isToggleOn = false;
-        this.state = {date: new Date()};
-    }
-
-    componentDidMount() {
-        this.timerID = setInterval(
-            () => this.tick(),
-            1000
-        );
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.timerID);
-    }
-
-    tick() {
-        this.setState({
-            date: new Date()
-        });
-    }
-
-    onClick () {
-        this.setState({
-            isToggleOn : !this.state.isToggleOn
-        })
-    }
-
+const App = React.createClass({
     render() {
         return (
             <div>
-                <h1>Hello, {this.props.name}. </h1>
-                <p>It's <Clock date={this.state.date.toLocaleTimeString()}/></p>
-                <p><button onClick={this.onClick.bind(this)}>{this.state.isToggleOn ? 'ON' : 'OFF'}</button></p>
+                <h1>App</h1>
+                <ul>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/inbox">Inbox</Link></li>
+                </ul>
+                {this.props.children}
             </div>
-        );
+        )
     }
+})
+
+const About = React.createClass({
+    render() {
+        return <h3>About</h3>
+    }
+})
+
+const Inbox = React.createClass({
+    render() {
+        return (
+            <div>
+                <h2>Inbox</h2>
+                {this.props.children || "Welcome to your Inbox"}
+            </div>
+        )
+    }
+})
+
+const Message = React.createClass({
+    render() {
+        return <h3>Message {this.props.params.id}</h3>
+    }
+})
+
+window.onload = () =>{
+    ReactDOM.render(
+        <Router>
+            <Route path="/" component={App}>
+                <Route path="about" component={About} />
+                <Route path="inbox" component={Inbox}>
+                    <Route path="messages/:id" component={Message} />
+                </Route>
+            </Route>
+        </Router>,
+        appInjectPoint
+    )
 }
-
-
-let App = () => (
-    <Welcome name={p1.name}/>
-)
-
-
-// const BasicExample = () => (
-//     <Router>
-//         <div>
-//             <ul>
-//                 <li><Link to="/">Home</Link></li>
-//                 <li><Link to="/about">About</Link></li>
-//                 <li><Link to="/topics">Topics</Link></li>
-//             </ul>
-//
-//             <hr/>
-//
-//             <Route exact path="/" component={Home}/>
-//             <Route path="/about" component={About}/>
-//             <Route path="/topics" component={Topics}/>
-//         </div>
-//     </Router>
-// )
-//
-// const Home = () => (
-//     <div>
-//         <h2>Home</h2>
-//     </div>
-// )
-//
-// const About = () => (
-//     <div>
-//         <h2>About</h2>
-//     </div>
-// )
-//
-// const Topics = ({ match }) => (
-//     <div>
-//         <h2>Topics</h2>
-//         <ul>
-//             <li>
-//                 <Link to={`${match.url}/rendering`}>
-//                     Rendering with React
-//                 </Link>
-//             </li>
-//             <li>
-//                 <Link to={`${match.url}/components`}>
-//                     Components
-//                 </Link>
-//             </li>
-//             <li>
-//                 <Link to={`${match.url}/props-v-state`}>
-//                     Props v. State
-//                 </Link>
-//             </li>
-//         </ul>
-//
-//         <Route path={`${match.url}/:topicId`} component={Topic}/>
-//         <Route exact path={match.url} render={() => (
-//             <h3>Please select a topic.</h3>
-//         )}/>
-//     </div>
-// )
-//
-// const Topic = ({ match }) => (
-//     <div>
-//         <h3>{match.params.topicId}</h3>
-//     </div>
-// )
-
-ReactDOM.render(
-    <App />,
-    appInjectPoint
-)
