@@ -1,6 +1,8 @@
 const webpack = require('webpack'),
     path = require('path'),
-    HtmlWebpackPlugin = require('html-webpack-plugin');
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    autoprefixer = require('autoprefixer');
 
 const BUILD_PATH = path.resolve(__dirname, 'build');
 
@@ -15,6 +17,7 @@ module.exports = {
     },
     //如果不需要react这段可以去掉
     resolve: {
+        extensions: ['', '.js', '.jsx'],
         alias: {
             "react": "anujs/dist/ReactIE.js",
             "react-dom": "anujs/dist/ReactIE.js",
@@ -23,25 +26,19 @@ module.exports = {
         }
     },
     module: {
-        loaders: [{
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader'
-        }, {
-            test: /\.css$/,
-            loader: 'style-loader!css-loader'
-        }],
-        postLoaders: [{
-            test: /\.js$/,
-            loader: "es3ify-loader"
-        }]
+        loaders: [
+            {test: /\.(js|jsx)(\?.*$|$)/,exclude: /node_modules/,loader: 'babel-loader'},
+            {test: /\.(png|jpg|gif|bmp|svg|swf)(\?.*$|$)/, loader: "url?limit=2048&name=img/[hash].[ext]" },
+            {test: /\.css$/,loader: "style!css"},
+            {test: /\.scss$/,loader: "style!css!postcss!sass"},
+        ],
+        postLoaders: [{test: /\.(js|jsx)(\?.*$|$)/,loader: "es3ify-loader"}]
+    },
+    postcss: function () {
+        return [autoprefixer];
     },
     plugins: [
-        new webpack.DefinePlugin({
-            "process.env": {
-                NODE_ENV: JSON.stringify("production")
-            }
-        }),
+        new ExtractTextPlugin("./css/[name].css"),
         new HtmlWebpackPlugin()
     ],
     devServer: {

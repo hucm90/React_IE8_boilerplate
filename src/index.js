@@ -125,12 +125,15 @@ document.body.appendChild(appInjectPoint);
 // )
 
 //React Router
+import PageIndex from "./Pages/index";
+
 class App extends React.Component{
     render() {
         return (
             <div>
                 <h1>App</h1>
                 <ul>
+                    <li><Link to="/index">首页</Link></li>
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/inbox">Inbox</Link></li>
                 </ul>
@@ -160,6 +163,7 @@ window.onload = () =>{
         <Router>
             <Route path="/" component={App}>
                 <Route path="about" component={About} />
+                <Route path="index" component={PageIndex} />
                 <Route path="inbox" component={Inbox}>
                     <Route path="messages/:id" component={Message} />
                 </Route>
