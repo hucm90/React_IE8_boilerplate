@@ -1,31 +1,5 @@
 @import "~mixin";
 
 ._Main{
-   float: left;
-   width: 770px;
-   margin-top: 34px;
 
-   &_right{
-      float: left;
-      width: 870px;
-      margin-left: 100px;
-   }
-   &_right_style2{
-     float: left;
-     width: 900px;
-     margin-left: 70px;
-   }
-
-   &_full{
-      width: 970px;
-      margin-left:auto;
-      margin-right: auto;
-      float: none;
-   }
-}
-
-._Aside{
-   float: right;
-   width: 300px;
-   margin-top: 34px;
 }

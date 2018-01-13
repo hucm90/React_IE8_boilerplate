@@ -1,13 +1,10 @@
 
-._Breadcrumb{
-  line-height: 1;
-  padding-bottom: 20px;
-  @include text-overflow;
+.Breadcrumb{
+  line-height: 50px;
   color: #999;
+  font-size: 14px;
 
-  span:last-child{color: #333;} //ie8不支持
-  a{color: #999; transition: color 0.3s ease;}
-  a:hover{text-decoration: none; color: darken(#999, 20%)}
-  a:before, span:before{content: ">"; padding: 0 5px;}
+  a{color: inherit; transition: color 0.3s ease;}
+  a:before, span:before{content: ">"; padding: 0 10px;}
   a:first-child:before{display: none; padding-left: 0;}
 }

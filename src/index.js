@@ -1,7 +1,6 @@
 import {} from "../scss/GlobalCSS"
 import React from "react";
 import ReactDOM from "react-dom";
-import {} from "devtools";
 import { Router, Route, Link, hashHistory  } from 'react-router'
 import PageIndex from "./Pages/Index"
 

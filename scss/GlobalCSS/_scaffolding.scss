@@ -30,7 +30,6 @@ body {
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
-  padding-bottom: 50px;
 }
 
 // Reset fonts for relevant elements
@@ -96,7 +95,13 @@ img {
   cursor: pointer;
 }
 
-ul{margin: 0; padding: 0; list-style: none}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+em{font-style: normal;}
 
 .relative{position: relative}
 .fr{float: right;}

@@ -8,6 +8,8 @@ const webpack = require('webpack'),
 const ROOT_PATH = path.resolve(__dirname, ".");
 const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
+const apiUrl = 'http://172.16.0.119/'; //api接口地址
+
 module.exports = {
     entry: {
         polyfill : 'babel-polyfill',
