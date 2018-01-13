@@ -2,9 +2,11 @@ const webpack = require('webpack'),
     path = require('path'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    CleanWebpackPlugin = require('clean-webpack-plugin'),
     autoprefixer = require('autoprefixer');
 
-const BUILD_PATH = path.resolve(__dirname, 'build');
+const ROOT_PATH = path.resolve(__dirname, ".");
+const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
 
 module.exports = {
     entry: {
@@ -17,11 +19,13 @@ module.exports = {
     },
     //如果不需要react这段可以去掉
     resolve: {
+        root : ['./scss'],
         extensions: ['', '.js', '.jsx'],
         alias: {
             "react": "anujs/dist/ReactIE.js",
             "react-dom": "anujs/dist/ReactIE.js",
             'prop-types': 'anujs/lib/ReactPropTypes',
+            'devtools' : "anujs/lib/devtools",
             'create-react-class': 'anujs/lib/createClass'
         }
     },
@@ -39,7 +43,8 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin("./css/[name].css"),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({template : "src/index.html"}),
+        new CleanWebpackPlugin("build", {root:ROOT_PATH})
     ],
     devServer: {
         disableHostCheck: true,

@@ -1,0 +1,92 @@
+._Heading{
+
+  //藏蓝色标题
+  &_1{
+    @include yahei;
+    font-size: 22px;
+    &,& a{color: #003262}
+  }
+
+  //带半截下划线的标题
+  &_2{
+    position: relative;
+    padding-bottom: 20px;
+    line-height: 1;
+    @include yahei;
+    color: #333;
+    font-size: 18px;
+
+    &:before{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      content: "";
+      height: 3px;
+      width: 36px;
+      background-color: #1589cd;
+      border-radius: 3px;
+    }
+  }
+
+  //灰色下划线标题
+  &_3{
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 18px;
+    @include yahei;
+    color: #666;
+    border-bottom: 1px #ccc solid;
+  }
+
+  //灰色下划线标题2
+  &_4{
+    line-height: 40px;
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    border-bottom: 1px #ddd solid;
+  }
+
+  //蓝色大字标题
+  &_5{
+    @include yahei;
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.5;
+    color: #003262;
+  }
+
+  //灰色标题
+  &_6{
+    @include yahei;
+    font-size: 18px;
+    color: #333;
+  }
+  //辅导
+  &_7{
+    padding-bottom: 14px;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 18px;
+    @include yahei;
+    color: #666;
+    border-bottom: 1px #ccc solid;
+  }
+
+  //所有的错误提示
+  &_error{
+    text-align: center;
+    font-size: 14px;
+    color: #c01c1c;
+  }
+
+  //内容空白提示
+  &_empty{
+    margin-top: 20px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+  }
+}

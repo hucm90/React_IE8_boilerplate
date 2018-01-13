@@ -1,0 +1,24 @@
+._Info{
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  text-align: left;
+  color: #666;
+  font-size: 14px;
+
+  &:before{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -10px;
+    content: url(./img/info.png);
+  }
+
+  em{
+    font-style: normal;
+    font-weight: bold;
+    color: #c01c1c;
+  }
+
+
+}

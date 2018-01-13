@@ -1,0 +1,63 @@
+[class^=_Button]{
+  display: inline-block;
+  border: 0;
+  outline: 0;
+}
+
+._Button{
+
+  //蓝底白字
+  &_1{
+    @include reset-button;
+    padding: 12px 60px;
+    color: #fff;
+    background-color: #1589cd;
+    border-radius: 5px;
+    font-size: 14px;
+
+    &:hover{color: #fff; background-color: #03a9f4;}
+  }
+
+  //蓝底白字粗体
+  &_2{
+    @include reset-button;
+    padding: 6px 60px;
+    color: #fff;
+    background-color: #1589cd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+
+    &:hover{color: #fff; background-color: #03a9f4;}
+  }
+
+  //白底篮字蓝边
+  &_3{
+    @include reset-button;
+    display: inline-block;
+    line-height: 1;
+    padding: 8px 20px;
+    color: #1589cd;
+    background-color: #fff;
+    border: 1px #1589cd solid;
+    border-radius: 5px;
+    font-size: 14px;
+    @include songti;
+
+    &:hover{color: #1589cd; background-color: #eee;}
+  }
+
+  //蓝底白字粗体小个
+  &_4{
+    @include reset-button;
+    padding: 6px 30px;
+    color: #fff;
+    background-color: #1589cd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: normal;
+
+    &:hover{color: #fff; background-color: #03a9f4;}
+    &[disabled]{background-color: #ccc}
+  }
+}

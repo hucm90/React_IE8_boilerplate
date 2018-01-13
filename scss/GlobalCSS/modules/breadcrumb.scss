@@ -1,0 +1,13 @@
+
+._Breadcrumb{
+  line-height: 1;
+  padding-bottom: 20px;
+  @include text-overflow;
+  color: #999;
+
+  span:last-child{color: #333;} //ie8不支持
+  a{color: #999; transition: color 0.3s ease;}
+  a:hover{text-decoration: none; color: darken(#999, 20%)}
+  a:before, span:before{content: ">"; padding: 0 5px;}
+  a:first-child:before{display: none; padding-left: 0;}
+}
