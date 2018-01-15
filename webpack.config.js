@@ -38,7 +38,10 @@ module.exports = {
             {test: /\.css$/,loader: "style!css"},
             {test: /\.scss$/,loader: "style!css!postcss!sass"},
         ],
-        postLoaders: [{test: /\.(js|jsx)(\?.*$|$)/,loader: "es3ify-loader"}]
+        postLoaders: [
+            {test: /\.(js|jsx)(\?.*$|$)/,loader: "es3ify-loader"},
+            {test: /\.(js|jsx)$/,loader: 'export-from-ie8/loader'}
+        ]
     },
     postcss: function () {
         return [autoprefixer];

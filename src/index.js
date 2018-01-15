@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, Link, hashHistory  } from 'react-router'
 import PageIndex from "./Pages/Index"
+import {Carousel} from "./Components"
 
 class App extends React.Component{
     render() {

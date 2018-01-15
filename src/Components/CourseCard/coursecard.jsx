@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router'
-import Image from "../Image"
-import Money from "../Money"
+import {Image, Money} from "../"
 import {} from "./coursecard.scss"
 
 let CourseCard = (props) => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
-import {GetCourseCateList, GetPlateList, GetPlateCourses} from "../../Service/categories";
-import CourseCard from "../../components/CourseCard"
+import {GetCourseCateList, GetPlateList, GetPlateCourses, GetCarouselList} from "../../Service/categories";
+import {CourseCard, Carousel, CarouselItem} from "../../Components"
 import {} from "./index.scss";
 
 let CateLink = (props) => (
@@ -10,6 +10,28 @@ let CateLink = (props) => (
         <h4>{props.data.cateName}</h4>
     </Link>
 )
+
+class Block0 extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            list : []
+        }
+    }
+
+    async componentWillMount () {
+        let data = await GetCarouselList();
+        this.setState({"list": data});
+    }
+
+    render () {
+        return (
+            <Carousel>
+                {this.state.list.map((el)=><CarouselItem link={el.address} image={el.pic}/>)}
+            </Carousel>
+        )
+    }
+}
 
 class Block1 extends React.Component {
 
@@ -94,6 +116,7 @@ class Block2 extends React.Component{
 
 let PageIndex = () => (
     <div className="PageIndex">
+        <Block0/>
         <Block1/>
         <Block2/>
     </div>

@@ -9,8 +9,8 @@ class Image extends React.Component{
 
     componentWillMount(){
         let img = document.createElement("img");
-        img.src = this.props.src;
         img.onload = ()=> this.setState({isLoaded:true})
+        img.src = this.props.src;
     }
 
     render(){

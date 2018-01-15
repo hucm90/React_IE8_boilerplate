@@ -1,6 +1,6 @@
 //import and export
-import Person from "./components/Person"
-import {Apple} from "./components/Food"
+import Person from "./Components/Person"
+import {Apple} from "./Components/Food"
 import PropTypes from 'prop-types';
 const React = require('react');
 const ReactDOM = require('react-dom');
