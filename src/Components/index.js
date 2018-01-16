@@ -9,3 +9,6 @@ export {Image}
 
 import Money from "./Money";
 export {Money}
+
+import Navigation from "./Navigation";
+export {Navigation}
