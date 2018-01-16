@@ -3,7 +3,8 @@ const webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
-    autoprefixer = require('autoprefixer');
+    autoprefixer = require('autoprefixer'),
+    es3ifyPlugin = require('es3ify-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname, ".");
 const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
@@ -39,14 +40,15 @@ module.exports = {
             {test: /\.scss$/,loader: "style!css!postcss!sass"},
         ],
         postLoaders: [
-            {test: /\.(js|jsx)(\?.*$|$)/,loader: "es3ify-loader"},
-            {test: /\.(js|jsx)$/,loader: 'export-from-ie8/loader'}
+            // {test: /\.(js|jsx)(\?.*$|$)/,loader: "es3ify-loader"},
+            // {test: /\.(js|jsx)$/,loader: 'export-from-ie8/loader'}
         ]
     },
     postcss: function () {
         return [autoprefixer];
     },
     plugins: [
+        new es3ifyPlugin(),
         new ExtractTextPlugin("./css/[name].css"),
         new HtmlWebpackPlugin({template : "src/index.html"}),
         new CleanWebpackPlugin("build", {root:ROOT_PATH})
@@ -59,4 +61,5 @@ module.exports = {
         host : "0.0.0.0",
         port:3000
     },
+    devtool: 'source-map'
 }
