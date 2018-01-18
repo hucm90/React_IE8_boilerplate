@@ -18,7 +18,7 @@ module.exports = {
     },
     output: {
         path: BUILD_PATH,
-        filename: 'js/[name].js'
+        filename: 'js/[name].[hash:5].js'
     },
     //如果不需要react这段可以去掉
     resolve: {
@@ -35,9 +35,9 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.(js|jsx)(\?.*$|$)/,exclude: /node_modules/,loader: 'babel-loader'},
-            {test: /\.(png|jpg|gif|bmp|svg|swf)(\?.*$|$)/, loader: "url?limit=2048&name=img/[hash].[ext]" },
+            {test: /\.(png|jpg|gif|bmp|svg|swf)(\?.*$|$)/, loader: "url?limit=2048&name=img/[hash:5].[ext]" },
             {test: /\.css$/,loader: "style!css"},
-            {test: /\.scss$/,loader: "style!css!postcss!sass"},
+            {test: /\.scss$/,loader: ExtractTextPlugin.extract("style", "css?modules=true&sourceMap=true!postcss!sass", {publicPath: "./"})},
         ],
         postLoaders: [
             // {test: /\.(js|jsx)(\?.*$|$)/,loader: "es3ify-loader"},
@@ -49,7 +49,7 @@ module.exports = {
     },
     plugins: [
         new es3ifyPlugin(),
-        new ExtractTextPlugin("./css/[name].css"),
+        new ExtractTextPlugin("./css/[name].[hash:5].css"),
         new HtmlWebpackPlugin({template : "src/index.html"}),
         new CleanWebpackPlugin("build", {root:ROOT_PATH})
     ],

@@ -1,24 +1,28 @@
 @import "~mixin";
 
-.Navigation{
+.Navigation {
   margin-bottom: 5px;
   background-color: #093962;
 
-  ul{
+  ul {
     @include clearfix;
   }
 
-  li{
+  li {
     float: left;
     width: 100px;
     line-height: 50px;
     margin-right: 10px;
   }
 
-  a{
+  a {
     font-size: 14px;
     color: #fff;
-    &.current{font-weight: bold; text-shadow: 0 0 2px #fff}
   }
 
+}
+
+.current {
+  font-weight: bold;
+  text-shadow: 0 0 2px #fff
 }

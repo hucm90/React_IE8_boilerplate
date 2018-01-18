@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router'
 import Image from "../Image"
-import {} from "./carousel.scss"
+import styles from "./carousel.scss"
 
 let CarouselItem = (props) => (
-    <div className={'Carousel-item '+(props.active ? 'active' : "")}>
+    <div className={styles.item+" "+(props.active ? styles.active : "")}>
         <Link to={props.link}><Image src={props.image}/></Link>
     </div>
 )
@@ -28,7 +28,7 @@ class Carousel extends React.Component{
 
     render () {
         return (
-            <div className="Carousel">
+            <div className={styles.Carousel}>
                 {this.props.children.map((el, index)=>{
                     return React.cloneElement(el, {
                         active: this.state.current === index

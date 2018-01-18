@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router'
 import {Image, Money} from "../"
-import {} from "./coursecard.scss"
+import styles from "./coursecard.scss"
 
 let CourseCard = (props) => (
-    <div className="CourseCard">
+    <div className={styles.CourseCard}>
         <Link to={"/CourseDetail?courseId="+props.data.courseId}>
-            <div className="CourseCard-img">
+            <div className={styles.img}>
                 <Image src={props.data.picUrl}/>
             </div>
-            <h1 className="CourseCard-title">{props.data.courseName}</h1>
-            <p className="CourseCard-info">{props.data.timeLength}&nbsp;&nbsp;|&nbsp;&nbsp;{props.data.buyNum}人已学</p>
-            <p className="CourseCard-price"><Money value={props.data.offPrice}/></p>
+            <h1 className={styles.title}>{props.data.courseName}</h1>
+            <p className={styles.info}>{props.data.timeLength}&nbsp;&nbsp;|&nbsp;&nbsp;{props.data.buyNum}人已学</p>
+            <p className={styles.price}><Money value={props.data.offPrice}/></p>
         </Link>
     </div>
 )

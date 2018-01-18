@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router'
 import {GetCourseCateList, GetPlateList, GetPlateCourses, GetCarouselList} from "../../Service/categories";
 import {CourseCard, Carousel, CarouselItem} from "../../Components"
-import {} from "./index.scss";
+import style from "./index.scss";
 
 let CateLink = (props) => (
-    <Link class="Index-category-item" to={"/Course?catId="+props.data.cateId}>
+    <Link class={style.categoryItem} to={"/Course?catId="+props.data.cateId}>
         <img src={props.data.pcPicUrl} />
         <h4>{props.data.cateName}</h4>
     </Link>
@@ -49,9 +49,9 @@ class Block1 extends React.Component {
 
     render () {
         return (
-            <div className="Index-block">
+            <div className={style.block}>
                 <div className="container">
-                    <div className="Index-category">
+                    <div className={style.category}>
                         {this.state.list.map((el)=>(
                             <CateLink data={el}/>
                         ))}
@@ -78,8 +78,8 @@ class Plate extends React.Component{
     render () {
         return (
             <div className="container">
-                <h1 className="_Heading1"><Link className="Index-more" to="/Course">更多&gt;&gt;</Link>{this.props.data.plateName}</h1>
-                <div className="CourseCard-list5">
+                <h1 className="_Heading1"><Link className={style.more} to="/Course">更多&gt;&gt;</Link>{this.props.data.plateName}</h1>
+                <div style={{'margin-left':"-43.6px", 'margin-top':"30px"}}>
                     {this.state.list.map((item)=>(
                         <CourseCard data={item}/>
                     ))}
@@ -105,7 +105,7 @@ class Block2 extends React.Component{
 
     render () {
         return (
-            <div className="Index-block">
+            <div className={style.block}>
                 {this.state.plates.map((plate)=>(
                     <Plate data={plate} />
                 ))}
