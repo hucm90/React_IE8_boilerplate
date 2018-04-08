@@ -4,6 +4,7 @@ const webpack = require('webpack'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
     autoprefixer = require('autoprefixer'),
+    ChunkRenamePlugin = require("chunk-rename-webpack-plugin"),
     es3ifyPlugin = require('es3ify-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname, ".");
@@ -48,8 +49,11 @@ module.exports = {
     plugins: [
         new es3ifyPlugin(),
         new ExtractTextPlugin("./css/[name].[hash:5].css"),
-        new HtmlWebpackPlugin({template : "src/index.html"}),
-        new CleanWebpackPlugin("build", {root:ROOT_PATH})
+        new HtmlWebpackPlugin({template : "src/index.html", chunks: ["main"]}),
+        new CleanWebpackPlugin("build", {root:ROOT_PATH}),
+        new ChunkRenamePlugin({
+          polyfill: 'js/polyfill.js'
+        })
     ],
     devServer: {
         disableHostCheck: true,
