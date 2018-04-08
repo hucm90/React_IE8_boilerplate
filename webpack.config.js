@@ -49,7 +49,7 @@ module.exports = {
     plugins: [
         new es3ifyPlugin(),
         new ExtractTextPlugin("./css/[name].[hash:5].css"),
-        new HtmlWebpackPlugin({template : "src/index.html", chunks: ["main"]}),
+        new HtmlWebpackPlugin({template : "src/index.html"}),
         new CleanWebpackPlugin("build", {root:ROOT_PATH}),
         new ChunkRenamePlugin({
           polyfill: 'js/polyfill.js'
