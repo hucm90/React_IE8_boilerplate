@@ -3,7 +3,6 @@ const webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require("extract-text-webpack-plugin"),
     CleanWebpackPlugin = require('clean-webpack-plugin'),
-    ChunkRenamePlugin = require("chunk-rename-webpack-plugin"),
     autoprefixer = require('autoprefixer'),
     es3ifyPlugin = require('es3ify-webpack-plugin');
 
@@ -52,10 +51,7 @@ module.exports = {
         new ExtractTextPlugin("./css/[name].[hash:5].css"),
         new HtmlWebpackPlugin({template : "src/index.html"}),
         new webpack.optimize.UglifyJsPlugin({mangle : false, output : {keep_quoted_props:true}, compress : {properties:false, drop_console: true},comments:false}),
-        new CleanWebpackPlugin("build", {root:ROOT_PATH}),
-        new ChunkRenamePlugin({
-          polyfill: 'js/polyfill.js'
-        })
+        new CleanWebpackPlugin("build", {root:ROOT_PATH})
     ],
     devServer: {
         disableHostCheck: true,

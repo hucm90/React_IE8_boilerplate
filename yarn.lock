@@ -970,10 +970,6 @@ chokidar@^1.0.0:
   optionalDependencies:
     fsevents "^1.0.0"
 
-chunk-rename-webpack-plugin@^1.1.1:
-  version "1.1.1"
-  resolved "http://registry.npm.taobao.org/chunk-rename-webpack-plugin/download/chunk-rename-webpack-plugin-1.1.1.tgz#4205c2539e90598639e0ff993b26e49b7c9165b2"
-
 clap@^1.0.9:
   version "1.2.3"
   resolved "http://registry.npm.taobao.org/clap/download/clap-1.2.3.tgz#4f36745b32008492557f46412d66d50cb99bce51"
