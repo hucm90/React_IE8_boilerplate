@@ -71,9 +71,9 @@ ansi-styles@^3.1.0:
   dependencies:
     color-convert "^1.9.0"
 
-anujs@^1.2.3:
-  version "1.2.3"
-  resolved "http://registry.npm.taobao.org/anujs/download/anujs-1.2.3.tgz#3be477c901af70007b40b6ef36de16e718115836"
+anujs@^1.3.2:
+  version "1.3.2"
+  resolved "http://registry.npm.taobao.org/anujs/download/anujs-1.3.2.tgz#a3fc57b2adcc3b87cef1c1ea12483296027d1851"
 
 anymatch@^1.3.0:
   version "1.3.2"
