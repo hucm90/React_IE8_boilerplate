@@ -1,10 +1,8 @@
 import 'promise-polyfill/src/polyfill';
 
 import * as React from "react";
-import {useEffect, useRef, useState} from "react";
+import {createRef} from "react";
 import {render} from "react-dom";
-import {useCallback} from "react";
-import { Router, Route, IndexRedirect, IndexRoute, Link, hashHistory  } from 'react-router'
 
 
 function sleep(time: number){
@@ -18,7 +16,7 @@ async function test(){
 
     for(let i of [1,2,3,4]){
         await sleep(1000);
-        console.log("sleep");
+        console.log(`sleep:${i}`);
     }
 
 }
@@ -36,66 +34,34 @@ class Person {
 
 
 function FuncComponent() {
-
-    let [current, setCurrent] = useState(0);
-
-    let ref = useRef<HTMLDivElement>(null);
-
-
-    useEffect(() => {
-
-        if(ref.current)
-            console.log(ref.current);
-
-    }, [current])
-
-
-    setTimeout(() => {
-        setCurrent(current + 1);
-    }, 1000);
-
-    console.log("render:"+ current)
-
     return (
-        <div ref={ref}>FuncComponent:{current} <button type={"button"} onClick={() => setCurrent( current + 1)}>Add</button></div>
+        <div >FuncComponent</div>
     )
 }
 
-
-// function useTimeout() {
-//
-// }
-
-interface IProps {
-
-}
-
-
-interface IState {
-
-}
-
-
-class App extends React.Component<IProps, IState>{
+class App extends React.Component{
 
     state = {
         current: 0
     }
 
-    constructor(props: IProps){
+    ref = createRef<HTMLDivElement>();
+
+    constructor(props: {}){
         super(props);
     }
 
-
     componentDidMount(){
 
-        // setInterval(() => this.setState({current: this.state.current + 1}), 1000);
+        setInterval(() => this.setState({current: this.state.current + 1}), 1000);
+
+        console.log(this.ref.current)
 
     }
 
     render() {
         return (
-            <div>
+            <div ref={this.ref}>
                 <div className="container">1231211131222</div>
                 <div>{this.state.current}</div>
                 <FuncComponent />
