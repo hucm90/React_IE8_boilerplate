@@ -11,6 +11,7 @@
     "jsx": "react",
     "strictNullChecks": true,
     "experimentalDecorators": true,
-    "types": ["node"]
+    "types": ["node"],
+    "lib": [ "es2015", "dom" ]
   }
 }
