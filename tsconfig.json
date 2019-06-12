@@ -10,6 +10,7 @@
     "target": "es3",
     "jsx": "react",
     "strictNullChecks": true,
+    "experimentalDecorators": true,
     "types": ["node"]
   }
 }

@@ -1,12 +1,13 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const es3ifyPlugin = require('es3ify-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 module.exports = {
-    mode: process.env.NODE_ENV,
+    mode: "development",
 
     // entry: [path.resolve(SRC_PATH, 'index.js')],
     output: {
@@ -37,6 +38,7 @@ module.exports = {
     },
 
     plugins: [
+        new es3ifyPlugin(),
         new HtmlWebpackPlugin({template: './index.html'}),
         new MiniCssExtractPlugin({
             filename: "[name].css",
@@ -52,5 +54,7 @@ module.exports = {
         open: true
     },
 
-    devtool: 'eval-source-map'
+    devtool: "none"
+
+    // devtool: 'eval-source-map'
 };
