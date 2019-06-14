@@ -12,7 +12,9 @@
     "ie8": "webpack-dev-server --watch-poll --progress "
   },
   "devDependencies": {
+    "@types/": "reach/router",
     "@types/node": "^11.9.4",
+    "@types/reach__router": "^1.2.4",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.4",
     "@types/react-router": "^2.0.56",
@@ -30,6 +32,7 @@
     "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "anujs": "^1.5.3",
     "babel-polyfill": "^6.26.0",
     "core-js": "^3.1.3",

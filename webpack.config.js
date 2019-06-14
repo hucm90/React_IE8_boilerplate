@@ -19,6 +19,7 @@ module.exports = {
         modules: [SRC_PATH, "node_modules"],
 
         alias: {
+            "@reach/router": "anujs/dist/Router",
             "react": "anujs/dist/ReactIE.js",
             "react-dom": "anujs/dist/ReactIE.js",
             'prop-types': 'anujs/lib/ReactPropTypes',
