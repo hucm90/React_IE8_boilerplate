@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const es3ifyPlugin = require('es3ify-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
@@ -19,6 +20,7 @@ module.exports = {
         modules: [SRC_PATH, "node_modules"],
 
         alias: {
+            "@reach/router": path.resolve(ROOT_PATH, "lib", "Router"),
             "react": "anujs/dist/ReactIE.js",
             "react-dom": "anujs/dist/ReactIE.js",
             'prop-types': 'anujs/lib/ReactPropTypes',
@@ -29,12 +31,21 @@ module.exports = {
 
     module: {
         rules: [
-            // { test: /\.(js|jsx)$/, exclude: /node_modules/, use: 'babel-loader'},
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
-            // { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: "url-loader?limit=2048&name=assets/[hash:5].[ext]"},
-            // { test: /\.css$/, use: [{loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}}, "css-loader" ]},
+            { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: "url-loader?limit=2048&name=assets/[hash:5].[ext]"},
+            { test: /\.css$/, use: [{loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}}, "css-loader" ]},
         ]
+    },
+
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    ie8: true,
+                },
+            }),
+        ],
     },
 
     plugins: [
@@ -43,7 +54,14 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+        }),
+        new UglifyJsPlugin({
+            uglifyOptions: {
+                ie8: true,
+                compress: true,
+                mangle: false,
+            },
+        }),
     ],
 
     devServer: {
@@ -52,9 +70,5 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         open: true
-    },
-
-    devtool: "none"
-
-    // devtool: 'eval-source-map'
+    }
 };

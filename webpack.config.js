@@ -30,11 +30,10 @@ module.exports = {
 
     module: {
         rules: [
-            // { test: /\.(js|jsx)$/, exclude: /node_modules/, use: 'babel-loader'},
             { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
             { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
-            // { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: "url-loader?limit=2048&name=assets/[hash:5].[ext]"},
-            // { test: /\.css$/, use: [{loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}}, "css-loader" ]},
+            { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: "url-loader?limit=2048&name=assets/[hash:5].[ext]"},
+            { test: /\.css$/, use: [{loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}}, "css-loader" ]},
         ]
     },
 
@@ -44,7 +43,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "[name].css",
             chunkFilename: "[id].css"
-        })
+        }),
     ],
 
     devServer: {
