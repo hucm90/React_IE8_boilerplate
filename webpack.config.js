@@ -19,8 +19,7 @@ module.exports = {
         modules: [SRC_PATH, 'node_modules'],
 
         alias: {
-            '@reach/router': 'anujs/dist/Router',
-            // "router": "anujs/dist/Router.js",
+            '@reach/router': path.resolve(ROOT_PATH, 'lib', 'Router'),
             'react': 'anujs/dist/ReactIE.js',
             'react-dom': 'anujs/dist/ReactIE.js',
             'prop-types': 'anujs/lib/ReactPropTypes',
@@ -34,8 +33,8 @@ module.exports = {
             { enforce: 'pre', test: /\.(js|jsx|ts|tsx)$/, exclude: /node_modules/, use: 'eslint-loader' },
             { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
             { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
-            // { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: "url-loader?limit=2048&name=assets/[hash:5].[ext]"},
-            // { test: /\.css$/, use: [{loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'}}, "css-loader" ]},
+            { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: 'url-loader?limit=2048&name=assets/[hash:5].[ext]' },
+            { test: /\.css$/, use: [{ loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }}, 'css-loader'] },
         ]
     },
 
