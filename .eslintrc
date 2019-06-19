@@ -1,0 +1,11 @@
+{
+  "extends": [
+      "eslint-config-alloy/react",
+      "eslint-config-alloy/typescript"
+  ],
+  "globals": {
+  },
+  "rules": {
+    "@typescript-eslint/explicit-member-accessibility": 0
+  }
+}
