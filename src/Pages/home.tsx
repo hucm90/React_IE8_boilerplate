@@ -2,7 +2,8 @@ import * as React from "react";
 import {Link, RouteComponentProps} from '@reach/router';
 import AppContext from "../Contexts/appcontext";
 
-import Card from '../Components/Card';
+
+export default class PageHome extends React.Component<RouteComponentProps>{
 
     static contextType = AppContext;
 
