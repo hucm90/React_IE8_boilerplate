@@ -4,13 +4,13 @@
  */
 
 function delay(time: number) {
-    return new Promise( resolve => {
+    return new Promise(resolve => {
         setTimeout(resolve, time);
-    })
+    });
 }
 
-async function testAsync(){
-    for(let i of [1, 2, 3]){
+async function testAsync() {
+    for (let i of [1, 2, 3]) {
         await delay(1000);
         console.log(i);
     }

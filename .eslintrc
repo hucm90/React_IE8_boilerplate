@@ -1,4 +1,6 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
   "extends": [
       "eslint-config-alloy/react",
       "eslint-config-alloy/typescript"

@@ -1,13 +1,13 @@
-import * as React from "react";
-import {Link, RouteComponentProps} from '@reach/router';
-import AppContext from "../Contexts/appcontext";
+import * as React from 'react';
+import { Link, RouteComponentProps } from '@reach/router';
+import AppContext from '../Contexts/appcontext';
 
 
-export default class PageHome extends React.Component<RouteComponentProps>{
+export default class PageHome extends React.Component<RouteComponentProps> {
 
     static contextType = AppContext;
 
-    render(){
+    render() {
 
         return (
             <div>

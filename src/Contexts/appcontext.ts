@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react';
 
 const ContextDefault = {
-    userName: "menghao",
+    userName: 'menghao',
     age: 18,
-}
+};
 
 const AppContext = React.createContext(ContextDefault);
 
 
-export default AppContext
+export default AppContext;
