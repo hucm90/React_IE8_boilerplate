@@ -5,7 +5,6 @@ import { Link, RouteComponentProps, navigate } from '@reach/router';
 export default class PageNews extends React.Component<RouteComponentProps> {
 
     onItemClick(url: string) {
-        console.log(url);
         navigate(url);
     }
 

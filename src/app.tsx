@@ -1,9 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import { Router } from '@reach/router';
-import PageHome from './Pages/home';
-import PageNews from './Pages/news';
-import PageContent from './Pages/content';
+import PageHome from './Pages/Home';
+import PageNews from './Pages/News';
+import PageContent from './Pages/Content';
 import AppContext from './Contexts/appcontext';
+import { BASE_URL } from 'Config';
+import Request from './Lib/Request';
 
 export default class App extends React.Component {
 
@@ -19,3 +21,11 @@ export default class App extends React.Component {
         );
     }
 }
+
+// init app default settings
+function Init() {
+    // init request
+    Request.defaults.baseURL = BASE_URL.B2C;
+}
+
+Init();

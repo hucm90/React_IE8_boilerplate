@@ -8,6 +8,19 @@
   "globals": {
   },
   "rules": {
-    "@typescript-eslint/explicit-member-accessibility": 0
+    "quotes": "off",
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    "no-trailing-spaces": "off",
+    "no-alert": "warn",
+    "no-console": "warn",
+    "no-debugger": "warn",
+//    "no-unused-vars": "warn",
+    "react/jsx-pascal-case": "warn",
+    "max-len": ["warn", 120],
+    "max-lines": ["warn", 500],
+    "max-statements": ["warn", 100],
+    "camelcase": "error",
+    "@typescript-eslint/no-inferrable-types": "off"
+//    "react/no-multi-comp": "error"
   }
 }
