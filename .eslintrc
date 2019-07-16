@@ -14,6 +14,7 @@
     "no-alert": "warn",
     "no-console": "warn",
     "no-debugger": "warn",
+    "no-undefined": "off",
 //    "no-unused-vars": "warn",
     "react/jsx-pascal-case": "warn",
     "max-len": ["warn", 120],

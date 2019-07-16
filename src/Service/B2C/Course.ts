@@ -1,4 +1,5 @@
 import Request from 'Lib/Request';
+import { HttpAuthError, HttpNetworkError, HttpError } from 'Lib/ErrorHandler';
 
 interface ICourseInfo {
     courseId: number;
@@ -7,5 +8,5 @@ interface ICourseInfo {
 }
 
 export function getCourseInfo(courseId: number) {
-    return Request.get<ICourseInfo>(`getCourseInfo?courseId=${courseId}`);
+    return Request.get<ICourseInfo>(`getCourseInfo1?courseId=${courseId}`);
 }

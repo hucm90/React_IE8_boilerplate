@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from '@reach/router';
+import { LayoutMain } from "Components/Layouts";
 
 
 interface IPageContentProps extends RouteComponentProps{
@@ -11,7 +12,9 @@ export default class PageContent extends React.Component<IPageContentProps> {
     render() {
 
         return (
-            <div>PageNews: {this.props.id}</div>
+            <LayoutMain>
+                <div>PageNews: {this.props.id}</div>
+            </LayoutMain>
         );
     }
 }

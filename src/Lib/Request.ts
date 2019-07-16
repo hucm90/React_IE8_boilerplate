@@ -1,10 +1,8 @@
 import qs from 'qs';
-import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 
-
-export interface RequestResponse extends AxiosResponse{
-    type: string;
-}
+// 请求错误
+export type RequestError = AxiosError;
 
 function sendPostRequest<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<T> {
     return axios.post<T>(url, qs.stringify(data), config).then((response) => getData<T>(response));

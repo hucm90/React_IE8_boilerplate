@@ -1,0 +1,9 @@
+//图标字体
+
+@mixin iconfont($val){
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: $val;
+}

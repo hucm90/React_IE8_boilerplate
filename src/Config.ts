@@ -9,6 +9,8 @@ let BASE_URL = {
     Mock: 'Mock',
 };
 
+// sentry配置
+let SENTRY_DSN = 'http://04c1d5961cab4f9b8317a5a0e0ee1c05@st.dufe.online/2';
 
 /**
  * 开发模式配置
@@ -23,10 +25,23 @@ if (process.env.NODE_ENV === 'development') {
         Mock: 'https://www.easy-mock.com/mock/5b0b61d81a903d20902bee9b/mock/',
     };
 
+    SENTRY_DSN = 'http://04c1d5961cab4f9b8317a5a0e0ee1c05@st.dufe.online/2';
+
+}
+
+/**
+ * 测试环境配置
+ */
+
+else if (process.env.NODE_ENV === 'test') {
+
+    DEBUG = false;
+
 }
 
 // ------------------------------------------------------------------------ //
 export {
     DEBUG,
-    BASE_URL
+    BASE_URL,
+    SENTRY_DSN,
 };
