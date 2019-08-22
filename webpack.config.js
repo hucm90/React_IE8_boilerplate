@@ -28,9 +28,10 @@ const SourceMapLoaderRule = { enforce: 'pre', test: /\.js$/, loader: 'source-map
 const UrlLoaderRule = { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: 'url-loader', options: {limit: 2048, name: "assets/[hash:5].[ext]"} };
 
 const ExtractLoader = { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }};
+const ScssLoader = { loader: 'sass-loader', options: { sourceMap: true} };
 const CssLoader = { loader: 'css-loader', options: {modules: {localIdentName: '[name]_[local]_[hash:base64:8]'}, sourceMap: true} };
 const CssLoaderRule = { test: /\.css$/, use: [ExtractLoader, CssLoader] };
-const SassLoaderRule = { test: /\.scss$/, use: [ExtractLoader, CssLoader, 'sass-loader']};
+const SassLoaderRule = { test: /\.scss$/, use: [ExtractLoader, CssLoader, ScssLoader]};
 
 // plugins
 const HtmlPluginInstance = new HtmlWebpackPlugin({ template: './index.html' });
@@ -42,6 +43,11 @@ const MiniCssExtractPluginInstance =  new MiniCssExtractPlugin({
 module.exports = {
     mode: Mode,
     // entry: [path.resolve(SRC_PATH, 'index.js')],
+    entry: [
+        require.resolve('react-dev-utils/webpackHotDevClient'),
+        path.resolve(SRC_PATH, 'index.tsx')
+    ],
+
     output: Output,
 
     resolve: {
@@ -88,5 +94,5 @@ module.exports = {
     },
 
     // devtool: 'none'
-    devtool: 'eval-source-map'
+    devtool: 'source-map'
 };
