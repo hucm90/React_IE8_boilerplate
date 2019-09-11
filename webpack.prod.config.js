@@ -25,7 +25,6 @@ const Alias = {
 // rules
 const EslintRule = { enforce: 'pre', test: /\.(js|jsx|ts|tsx)$/, exclude: /node_modules/, use: 'eslint-loader' };
 const TsLoaderRule = { test: /\.tsx?$/, loader: 'awesome-typescript-loader' };
-const SourceMapLoaderRule = { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' };
 const UrlLoaderRule = { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: 'url-loader', options: {limit: 2048, name: "assets/[hash:5].[ext]"} };
 
 const ExtractLoader = { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }};
@@ -59,7 +58,6 @@ module.exports = {
         rules: [
             EslintRule,
             TsLoaderRule,
-            SourceMapLoaderRule,
             UrlLoaderRule,
             CssLoaderRule,
             SassLoaderRule,

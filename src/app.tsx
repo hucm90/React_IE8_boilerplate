@@ -1,13 +1,10 @@
 import React from 'react';
 import { Router } from '@reach/router';
-import PageHome from './Pages/Home';
-import PageNews from './Pages/News';
-import PageContent from './Pages/Content';
-import AppContext from './Contexts/appcontext';
-import { BASE_URL, SENTRY_DSN } from 'Config';
 import Request from './Lib/Request';
-import * as Sentry from '@sentry/browser';
-import Browser from 'Lib/Browser';
+import { BASE_URL } from 'Config';
+import "Components/SCSS/main.scss";
+import { LayoutMain } from "Components/Layouts";
+import { Page404, PageDemo, PageHome, PageNews } from "./Pages";
 
 interface UserInfo {
     userName: string;
@@ -31,15 +28,14 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <AppContext.Provider value={{ ...this.state.userInfo, setUserInfo: this.setUserInfo }}>
-
+            <LayoutMain>
                 <Router>
                     <PageHome path="/" />
-                    <PageNews path="news" />
-                    <PageContent path="news/:id" />
+                    <PageNews path="/news" />
+                    <PageDemo path="/demo/:component" />
+                    <Page404 default />
                 </Router>
-
-            </AppContext.Provider>
+            </LayoutMain>
         );
     }
 }

@@ -3,6 +3,10 @@
 // Generate semantic grid columns with these mixins.
 
 // Centered container element
+@function span($span){
+  @return percentage($span / 12) ;
+}
+
 @mixin make-grid-columns($class){
   @for $i from 1 through $grid-columns{
     .c#{$class}-#{$i}{width:span($i);}

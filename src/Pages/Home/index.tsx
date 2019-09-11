@@ -55,3 +55,5 @@ export default class PageHome extends React.Component<RouteComponentProps> {
         );
     }
 }
+
+export default PageHome;

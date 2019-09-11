@@ -1,0 +1,32 @@
+
+.text{
+  color: transparent;
+  word-break: break-all;
+  animation: pulse 1s infinite;
+  background-color: darken(#A5A5A5, 10%);
+}
+
+.photo{
+  border-radius: 100%;
+  animation: pulse 1s infinite;
+  background-color: darken(#A5A5A5, 10%);
+}
+
+.rect{
+  animation: pulse 1s infinite;
+  background-color: darken(#A5A5A5, 10%);
+}
+
+@keyframes pulse {
+  0% {
+    background-color: darken(#A5A5A5, 10%);
+  }
+
+  50% {
+    background-color: darken(#A5A5A5, 5%);
+  }
+
+  100% {
+    background-color: darken(#A5A5A5, 10%);
+  }
+}
