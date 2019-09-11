@@ -16,6 +16,7 @@ const Alias = {
     '@reach/router': path.resolve(SRC_PATH, 'Lib', 'Router'),
     'react': 'anujs/dist/ReactIE.js',
     'react-dom': 'anujs/dist/ReactIE.js',
+    'redux': 'anujs/dist/ReduxIE.js',
     'prop-types': 'anujs/lib/ReactPropTypes',
     'devtools': 'anujs/lib/devtools',
     'create-react-class': 'anujs/lib/createClass'
@@ -24,13 +25,12 @@ const Alias = {
 // rules
 const EslintRule = { enforce: 'pre', test: /\.(js|jsx|ts|tsx)$/, exclude: /node_modules/, use: 'eslint-loader' };
 const TsLoaderRule = { test: /\.tsx?$/, loader: 'awesome-typescript-loader' };
-const SourceMapLoaderRule = { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' };
 const UrlLoaderRule = { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, loader: 'url-loader', options: {limit: 2048, name: "assets/[hash:5].[ext]"} };
 
 const ExtractLoader = { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }};
 const ScssLoader = { loader: 'sass-loader', options: { sourceMap: true} };
 const CssLoader = { loader: 'css-loader', options: {modules: {localIdentName: '[name]_[local]_[hash:base64:8]'}, sourceMap: true} };
-const CssLoaderRule = { test: /\.css$/, use: [ExtractLoader, CssLoader] };
+const CssLoaderRule = { test: /\.css$/, use: [ExtractLoader, { loader: 'css-loader', options: {sourceMap: true} }] };
 const SassLoaderRule = { test: /\.scss$/, use: [ExtractLoader, CssLoader, ScssLoader]};
 
 // plugins
@@ -43,10 +43,10 @@ const MiniCssExtractPluginInstance =  new MiniCssExtractPlugin({
 module.exports = {
     mode: Mode,
     // entry: [path.resolve(SRC_PATH, 'index.js')],
-    entry: [
-        require.resolve('react-dev-utils/webpackHotDevClient'),
-        path.resolve(SRC_PATH, 'index.tsx')
-    ],
+    // entry: [
+    //     require.resolve('react-dev-utils/webpackHotDevClient'),
+    //     path.resolve(SRC_PATH, 'index.tsx')
+    // ],
 
     output: Output,
 
@@ -60,7 +60,6 @@ module.exports = {
         rules: [
             EslintRule,
             TsLoaderRule,
-            SourceMapLoaderRule,
             UrlLoaderRule,
             CssLoaderRule,
             SassLoaderRule,

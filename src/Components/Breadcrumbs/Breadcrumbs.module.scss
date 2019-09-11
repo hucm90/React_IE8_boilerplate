@@ -1,0 +1,14 @@
+.Breadcrumbs{
+  line-height: 50px;
+  color: #999;
+  font-size: 14px;
+}
+.Breadcrumbs a{
+  color: inherit;
+  transition: color .3s ease;
+}
+.Breadcrumbs a:after{
+  display: inline-block;
+  content: ">";
+  padding: 0 10px;
+}

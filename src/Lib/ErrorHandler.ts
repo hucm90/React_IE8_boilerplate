@@ -1,5 +1,4 @@
-import { RequestError } from './Request';
-
+type RequestError = any;
 // 未登陆或已退出
 export function HttpAuthError(error: RequestError) {
     if (error.response && error.response.status === 400) {

@@ -1,4 +1,5 @@
 import Request from 'Lib/Request';
+import { BASE_URL } from "Config";
 import { HttpAuthError, HttpNetworkError, HttpError } from 'Lib/ErrorHandler';
 
 interface ICourseInfo {
@@ -8,5 +9,5 @@ interface ICourseInfo {
 }
 
 export function getCourseInfo(courseId: number) {
-    return Request.get<ICourseInfo>(`getCourseInfo1?courseId=${courseId}`);
+    return Request(BASE_URL.B2C).get<ICourseInfo>(`getCourseInfo?courseId=${courseId}`);
 }

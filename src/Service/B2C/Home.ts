@@ -1,5 +1,5 @@
 import Request from 'Lib/Request';
-import { BASE_URL } from 'Config';
+import { BASE_URL } from "Config";
 
 // 首页名师
 export interface IGoodTeacher {

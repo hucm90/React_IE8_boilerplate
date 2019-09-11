@@ -1,0 +1,92 @@
+.CourseCard {
+
+}
+.image {
+  width: 100%;
+}
+.title {
+  margin-top: 15px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.info {
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #999;
+}
+.price {
+  font-size: 14px;
+  color: #ff7745;
+}
+.price del{
+  padding-left: 10px;
+  color: #999;
+}
+
+.CourseBlock{
+  p{margin-bottom: 3px;}
+  .image{
+    width: 280px;
+    height: 156px;
+    float: left;
+    margin-right: 30px;
+    overflow: hidden;
+  }
+  .courseInfo{
+    padding-right: 120px;
+    overflow: hidden;
+    position: relative;
+    height: 156px;
+  }
+  .courseName{
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .intro{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #999;
+  }
+  .description{
+    color: #666;
+    height: 48px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 24px;
+    word-break: break-all;
+    word-wrap: break-word;
+    transition: all .3s linear;
+    text-overflow: -o-ellipsis-lastline;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+  }
+  .teacher{
+    line-height: 2;
+  }
+  .price{
+    line-height: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    em{
+      font-size: 18px;
+      color: #ff7745;
+    }
+    del{
+      font-size: 14px;
+      color: #999;
+      margin-left: 15px;
+    }
+  }
+  .buttons{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+  }
+}

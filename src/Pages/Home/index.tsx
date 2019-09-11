@@ -1,57 +1,68 @@
-import React from 'react';
-import { Link, RouteComponentProps } from '@reach/router';
-import AppContext from 'Contexts/appcontext';
-import Service from 'Service';
-import { IGoodTeacher } from 'Service/B2C/Home';
-import { LayoutLogin } from "Components/Layouts";
-import { HttpAuthError } from "Lib/ErrorHandler";
-import style from './home.scss';
+import React, { Component } from 'react';
+import { Link } from '@reach/router';
+import CourseCard, { ICourseCard } from 'Components/CourseCard';
+import CourseLink from 'Components/CourseLink';
+import * as Debug from 'Lib/Debug';
 
-interface PageHomeState {
-    teacherList: IGoodTeacher[];
+import style from './Home.scss';
+import { getCarouselList, getPlateCourseList } from "Service/B2C/apis";
+
+interface CarouselItem {
+    address: string;
+    pic: string;
+    showType: string;
+    seq: number | null;
+    vid: string;
 }
 
-export default class PageHome extends React.Component<RouteComponentProps> {
+interface HomeState {
+    visible: boolean;
+    carouselList: Array<CarouselItem>;
+    courseList: Array<ICourseCard>;
+}
 
-    static contextType = AppContext;
+class PageHome extends Component<any, HomeState> {
 
-    state: PageHomeState = {
-        teacherList: []
-    };
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            visible: true,
+            carouselList: [],
+            courseList: [],
+        };
+    }
 
-    componentDidMount() {
-        Service.B2C.getCourseInfo(208).then(function (data) {
-            console.log('success', data);
-        }).catch(HttpAuthError);
+    componentWillMount() {
 
-        setTimeout(() => {
-            this.context.setUserInfo({ userName: '孟浩', age: 100 });
-        }, 3000);
+        getCarouselList()
+            .then(res => this.setState({ carouselList: res }))
+            .catch(() => Debug.error("数据请求失败"));
+
+        getPlateCourseList(7, 5)
+            .then(res => this.setState({ courseList: res }))
+            .catch(() => Debug.error("数据请求失败1"));
     }
 
     render() {
 
         return (
-            <LayoutLogin>
-                <AppContext.Consumer>
-                    {({ userName, setUserInfo }) => (
-                        <div className={style.home}>
-                            <h1>PageHome</h1>
-                            <h2>hello {userName}</h2>
-                            <img src={require('./img/logo.svg')} alt="" />
+            <div className="Home-CourseCard-wrap">
 
-                            <ul>
-                                {this.state.teacherList.map(teacher => (
-                                    <li key={teacher.teacherId}>{teacher.teacherName}</li>
-                                ))}
-                            </ul>
+                <div>
+                    <h1>Links</h1>
 
-                            <Link to="news">Read News List</Link>
-                        </div>
-                    )}
-                </AppContext.Consumer>
+                    <Link to="/demo/tab">Demos</Link> |
+                    <Link to="/news">News</Link>
+                </div>
 
-            </LayoutLogin>
+                {this.state.courseList.map((course, index) => (
+                    <div key={index} className={style['Home-CourseCard-item']}>
+                        <CourseLink courseId={course.courseId} modality={course.modality || 1}>
+                            <CourseCard courseType={1} course={course} />
+                        </CourseLink>
+                    </div>
+                ))}
+            </div>
         );
     }
 }

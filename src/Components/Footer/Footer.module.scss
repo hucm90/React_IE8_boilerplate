@@ -1,0 +1,106 @@
+.Footer{
+  padding-bottom: 50px;
+  padding-top: 36px;
+  background: #1a1c1e;
+  color: #aaa;
+}
+.Footer a {
+  color: inherit;
+}
+.Left{
+  width: 320px;
+  padding-left: 30px;
+  border-right: 1px solid #313334;
+  float: left;
+}
+.Logo{margin-bottom: 30px;}
+.Links{padding-left: 20px;}
+.Links2{margin-bottom: 20px;}
+.Links2 .Link{margin-left: 50px;}
+.Links2 .Link:first-child{margin-left: 0;}
+.Link{
+  display: inline-block;
+  min-width: 40px;
+  margin-left: 35px;
+  padding-top: 48px;
+  text-align: center;
+  font-size: 12px;
+  color: #ccc;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.Link:first-child{margin-left: 0}
+.Link1{background-image: url('./img/flink1.png')}
+.Link2{background-image: url('./img/flink2.png')}
+.Link3{background-image: url('./img/flink3.png')}
+.Link4{background-image: url('./img/flink4.png')}
+.Link5{background-image: url('./img/flink5.png')}
+.Link6{background-image: url('./img/flink6.png')}
+.CopyRight{
+  margin-top: 30px;
+  padding-top: 20px;
+  clear: left;
+  text-align: center;
+  border-top: 1px solid #313334;
+}
+.Middle{
+  width: 560px;
+  padding-left: 80px;
+  float: left;
+}
+.Qrcode{
+  display: inline-block;
+  margin-left: 65px;
+  text-align: center;
+}
+.Qrcode img{
+  width: 104px;
+  height: 104px;
+}
+.Qrcode h4{
+  font-size: 12px;
+  margin-top: 15px;
+}
+.Right{
+  width: 310px;
+  padding-left: 50px;
+  border-left: 1px solid #313334;
+  text-align: center;
+  float: left;
+}
+
+.ServiceTitle{
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #ccc;
+}
+.ServiceTel{
+  margin: 0;
+  line-height: 1;
+  font-size: 24px;
+  color: #ccc;
+}
+.App{
+  position: relative;
+}
+.Popup{
+  position: absolute;
+  width: 180px;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -90px;
+  padding: 20px 20px 0 20px;
+  background: #fff;
+  border-radius: 2px;
+  z-index: 999;
+  transform: scale(0.5);
+  transform-origin : bottom center;
+  transition: 0.2s;
+  opacity: 0;
+  visibility: hidden;
+}
+.App:hover .Popup{
+  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+}

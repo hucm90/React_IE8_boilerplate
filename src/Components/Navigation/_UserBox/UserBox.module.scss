@@ -1,0 +1,102 @@
+.UserBox{
+  display: inline-block;
+  position: relative;
+  margin-left: 30px;
+  transition: .2s;
+  &:hover .Popup{
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  .outSideAvatar{
+    width: 36px;
+    height: 36px;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+}
+.Popup{
+  position: absolute;
+  padding-top: 15px;
+  top: 99%;
+  right: 0;
+  transform: scale(.5);
+  transform-origin: right top;
+  transition: .2s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+.Box{
+  width: 320px;
+  background: #fff;
+  box-shadow: 0 4px 15px 0 #ddd;
+}
+.Top{
+  height: 126px;
+  background: #cdb380 url(http://www.dufe.online/img/966ad69eaf8c211866d7ea9db2fcc421.png) bottom no-repeat;
+  .insideAvatar{
+    width: 70px;
+    height: 70px;
+    margin: 28px 15px 28px 28px;
+    overflow: hidden;
+    float: left;
+    img{
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+      border: 2px solid #fff;
+    }
+  }
+  .accountInfo{
+    float: left;
+    color: #fff;
+    a{color: inherit}
+    .name{
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    .account{
+      font-size: 12px;
+      text-decoration: underline;
+    }
+  }
+}
+.Links{
+  padding: 12px 0 12px 24px;
+  .linkItem{
+    width: 140px;
+    color: #666;
+    font-size: 14px;
+    line-height: 36px;
+    display: inline-block;
+    padding-left: 25px;
+    a{color: inherit}
+    &.iconCourse{background: url('./img/icon1.png') 0 no-repeat;}
+    &.iconTask{background: url('./img/icon2.png') 0 no-repeat;}
+    &.iconOrder{background: url('./img/icon3.png') 0 no-repeat;}
+    &.iconMessage{background: url('./img/icon5.png') 0 no-repeat;}
+    &.iconCoupon{background: url('./img/icon6.png') 0 no-repeat;}
+    &.iconEnterprise{background: url('./img/icon8.png') 0 no-repeat;}
+  }
+}
+
+.Bottom{
+  line-height: 32px;
+  padding-left: 24px;
+  padding-right: 20px;
+  background: #f9f9f9;
+  color: #999;
+  font-size: 14px;
+  .logout{
+    float: right;
+    color: inherit;
+    cursor: pointer;
+  }
+  .profile{
+    color: inherit;
+    padding-left: 25px;
+    background: url('./img/icon4.png') 0 no-repeat;
+  }
+}

@@ -1,0 +1,35 @@
+.InputGroup{
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.InputGroupRow{
+  position: relative;
+  height: 54px;
+  padding: 0 18px;
+  border-top: 1px solid #ddd;
+  overflow: hidden;
+}
+.InputGroupRow:first-child{border-top: 0}
+.InputGroupRow input{
+  outline: none;
+  height: 100%;
+  padding-top: 20px;
+  padding-left: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+}
+.Placeholder{
+  position: absolute;
+  top: 17px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #999;
+  transition: .2s;
+  cursor: text;
+}
+.Top{
+  top: 5px;
+  font-size: 12px;
+}

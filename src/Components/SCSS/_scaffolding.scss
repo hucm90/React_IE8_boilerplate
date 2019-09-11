@@ -30,7 +30,6 @@ body {
   line-height: $line-height-base;
   color: $text-color;
   background-color: $body-bg;
-  padding-bottom: 50px;
 }
 
 // Reset fonts for relevant elements
@@ -98,12 +97,15 @@ img {
 
 ul{margin: 0; padding: 0; list-style: none}
 
-.relative{position: relative;}
-.fr{float: right;}
-.fl{float: left;}
-.relative{position: relative;}
-.absolute{position: absolute;}
-.clearfix{@include clearfix;}
-.invisible{visibility: hidden;}
-.hidden{display: none;}
-.full{width: 100%;}
+
+:global{
+  .relative{position: relative;}
+  .fr{float: right;}
+  .fl{float: left;}
+  .relative{position: relative;}
+  .absolute{position: absolute;}
+  .clearfix{@include clearfix;}
+  .invisible{visibility: hidden;}
+  .hidden{display: none;}
+  .full{width: 100%;}
+}

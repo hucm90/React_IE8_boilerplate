@@ -1,0 +1,71 @@
+// @import "~slick-carousel/slick/slick.css";
+// @import "~slick-carousel/slick/slick-theme.css";
+.CarouselTeacher{
+  width: 1120px;
+}
+.Teacher{
+  text-align: center;
+}
+.TeacherItem{
+  padding: 0px 10px;
+  &:focus{outline: none}
+}
+.overflow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.avatar{
+  width: 168px;
+  height: 168px;
+  margin: 0 auto;
+}
+.name{
+  @extend .overflow;
+  margin-top: 26px;
+  font-size: 16px;
+}
+.title{
+  @extend .overflow;
+  font-size: 14px;
+  color: #666;
+}
+.company{
+  @extend .overflow;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #257abd;
+}
+.arrow{
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 30px;
+  height: 55px;
+  padding: 0;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: transparent;
+  border: none;
+  outline: none;
+}
+.nextArrow{
+  @extend .arrow;
+  background: url(./img/arrow.png) no-repeat;
+  background-position: -90px;
+  right:-40px;
+  &:hover{
+    background-position: -30px;
+  }
+}
+.prevArrow{
+  @extend .arrow;
+  background: url(./img/arrow.png) no-repeat;
+  background-position: -60px;
+  left:-40px;
+  &:hover{
+    background-position: 0;
+  }
+}

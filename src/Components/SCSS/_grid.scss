@@ -1,0 +1,58 @@
+:global{
+  @mixin container{
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    @include clearfix;
+  }
+
+  @function gutter(){
+    @return 15px;
+  }
+
+  .container{@include container; padding-left: gutter(); padding-right: gutter(); }
+  .row{@include clearfix; margin-left: 0 - gutter(); margin-right: 0 - gutter(); font-size: 0; letter-spacing:-3px;}
+
+  %column{
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: $font-size-base;
+    letter-spacing: normal;
+  }
+
+  @for $i from 1 through $grid-columns{
+    @for $class from 1 through 6{
+      .c#{$class}-#{$i}{
+        @extend %column;
+      }
+    }
+  }
+
+
+  @include make-grid(1);
+
+  @include responsive(2){
+    @include make-grid(2);
+  }
+
+  @include responsive(3) {
+    @include make-grid(3);
+  }
+
+  @include responsive(4) {
+    @include make-grid(4);
+  }
+
+  @include responsive(5) {
+    @include make-grid(5);
+  }
+
+  @include responsive(6) {
+    @include make-grid(6);
+  }
+}
+

@@ -13,17 +13,12 @@ interface UserInfo {
 
 export default class App extends React.Component {
 
-    state = {
-        userInfo: { userName: 'menghao', age: 0 },
-    };
+    componentWillMount() {
+        // init request
+        Request.defaults.baseURL = BASE_URL.B2C;
 
-    constructor(props: {}) {
-        super(props);
-        this.setUserInfo = this.setUserInfo.bind(this);
-    }
-
-    setUserInfo(userInfo: UserInfo) {
-        this.setState({ userInfo });
+        // init error reporting
+        // if (!(Browser.name === 'Internet Explorer' && Browser.version === '8.0')) Sentry.init({ dsn: SENTRY_DSN });
     }
 
     render() {
@@ -39,13 +34,3 @@ export default class App extends React.Component {
         );
     }
 }
-
-function Init() {
-    // init request
-    Request.defaults.baseURL = BASE_URL.B2C;
-
-    // init error reporting
-    if (!(Browser.name === 'Internet Explorer' && Browser.version === '8.0')) Sentry.init({ dsn: SENTRY_DSN });
-}
-
-Init();

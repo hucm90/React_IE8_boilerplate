@@ -1,0 +1,60 @@
+.Tabs{
+  border-bottom: 1px solid #ddd
+}
+.Tab{
+  position: relative;
+  margin-right: 100px;
+  line-height: 52px;
+  font-size: 20px;
+  color: #666;
+  border-bottom: 4px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+}
+.Tab.current{
+  color: #ff7745;
+  border-color: #ff7745;
+}
+.haveIcon{
+  padding-left: 46px;
+  &:before{
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 0;
+    top: 50%;
+    margin-top: -11px;
+  }
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+.detail{
+  @extend .haveIcon;
+  &:before{background: url(./icons/icon1.png) 0 no-repeat;}
+  &.current:before{background-position: -24px;}
+}
+.section{
+  @extend .haveIcon;
+  &:before{background: url(./icons/icon2.png) 0 no-repeat;}
+  &.current:before{background-position: -24px;}
+}
+.pack{
+  @extend .haveIcon;
+  &:before{background: url(./icons/icon3.png) 0 no-repeat;}
+  &.current:before{background-position: -24px;}
+}
+.course{
+  @extend .haveIcon;
+  &:before{background: url(./icons/icon4.png) 0 no-repeat;}
+  &.current:before{background-position: -24px;}
+}
+.download{
+  @extend .haveIcon;
+  &:before{background: url(./icons/icon5.png) 0 no-repeat;}
+  &.current:before{background-position: -24px;}
+}

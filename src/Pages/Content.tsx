@@ -9,6 +9,8 @@ interface IPageContentProps extends RouteComponentProps{
 
 export default class PageContent extends React.Component<IPageContentProps> {
 
+    static path = "/news/:id";
+
     render() {
 
         return (

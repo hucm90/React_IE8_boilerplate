@@ -9,7 +9,7 @@ const SRC_PATH = path.resolve(ROOT_PATH, 'src');
 
 
 // common
-const Mode = process.env.NODE_ENV;
+const Mode = 'production';
 const Output = { publicPath: '/' };
 const Extensions = ['.js', '.jsx', '.ts', '.tsx'];
 const Modules = [SRC_PATH, 'node_modules'];
@@ -45,7 +45,9 @@ const MiniCssExtractPluginInstance =  new MiniCssExtractPlugin({
 
 module.exports = {
     mode: Mode,
-    // entry: [path.resolve(SRC_PATH, 'index.js')],
+    // entry: [
+    //     path.resolve(SRC_PATH, 'index.tsx'),
+    // ],
     output: Output,
 
     resolve: {
@@ -75,5 +77,7 @@ module.exports = {
         HtmlPluginInstance,
         MiniCssExtractPluginInstance,
         UglifyJsPluginInstance,
-    ]
+    ],
+
+    devtool: "none"
 };

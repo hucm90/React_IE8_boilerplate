@@ -1,0 +1,41 @@
+/*@import "~slick-carousel/slick/slick-theme.css";*/
+
+
+.Carousel{
+  text-align: center;
+}
+
+.Carousel .slick-slide img{
+  display: inline-block;
+}
+
+.Carousel-dots{
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.Carousel-dots li{
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.Carousel-dots li.slick-active span{
+  background-color: hsla(0,0%,100%,.3);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4DFFFFFF",endColorstr="#4DFFFFFF");
+}
+
+.Carousel-dot{
+  display: block;
+  height: 6px;
+  width: 38px;
+  text-indent: -100px;
+  overflow: hidden;
+  background-color: rgba(0,0,0,.2);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#33000000",endColorstr="#33000000");
+  cursor: pointer;
+}
