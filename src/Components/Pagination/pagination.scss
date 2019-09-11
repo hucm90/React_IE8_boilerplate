@@ -1,0 +1,37 @@
+@import "~Components/SCSS/mixins";
+
+.pagination{
+  @include clearfix;
+  user-select: none;
+}
+
+.item{
+  display: inline-block;
+  margin-right: 8px;
+  line-height: 28px;
+  width: 30px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  outline: none;
+  transition: all .3s;
+  cursor: pointer;
+  @include songti;
+}
+
+.current{
+  font-weight: 500;
+  color: #1890ff;
+  background: #fff;
+  border-color: #1890ff;
+}
+
+.disabled{
+  font-weight: 500;
+  color: lighten(#d9d9d9, 5%);
+  background: #fff;
+  border-color: lighten(#d9d9d9, 5%);
+  cursor: default;
+}
