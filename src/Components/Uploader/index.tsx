@@ -31,9 +31,9 @@ export default class Uploader extends React.PureComponent<UploaderProps> {
                 try {
                     const WebUploader = require('./WebUploader/webuploader.nolog').default;
 
-                    // this.createUploader(WebUploader);
+                    this.createUploader(WebUploader);
                 } catch (e) {
-                    console.error(e);
+                    Debug.error(e);
                 }
 
 

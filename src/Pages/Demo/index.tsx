@@ -8,7 +8,7 @@ import DemoCheckBox from "./pages/checkbox";
 import DemoRadio from "./pages/radio";
 import DemoGrid from "./pages/grid";
 import DemoPagination from "./pages/pagination";
-import DemoModel from "./pages/model";
+import DemoModal from "./pages/modal";
 import DemoUploader from "./pages/uploader";
 // import from ''
 
@@ -28,7 +28,7 @@ export default class PageDemo extends React.Component<PageDemoProps> {
 
         { id: 'tab', component: DemoTab },
         { id: 'heading', component: DemoTab },
-        { id: 'model', component: DemoModel },
+        { id: 'modal', component: DemoModal },
         { id: 'uploader', component: DemoUploader },
         { id: 'video', component: DemoVideo },
         { id: 'tip', component: DemoTab },

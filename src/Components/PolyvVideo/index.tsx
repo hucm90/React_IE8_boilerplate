@@ -32,8 +32,7 @@ class PolyvVideo extends Component<IPolyvVideoProps> {
     }
 
     componentDidCatch() {
-        // eslint-disable-next-line no-console
-        console.error('Polyv: componentDidCatch');
+        Debug.error('Polyv: componentDidCatch');
     }
 
     onScriptLoad = () => {
@@ -48,6 +47,8 @@ class PolyvVideo extends Component<IPolyvVideoProps> {
             autoplay: this.props.autoPlay || false,
             watchEndTime: this.props.endTime || 0,
         });
+
+        Debug.log(this.player);
 
         this.handlePlayEvents();
     };

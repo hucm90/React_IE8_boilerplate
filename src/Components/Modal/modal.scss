@@ -1,11 +1,9 @@
 .portal{
+
 }
+
 .content{
   position: relative;
-  z-index: 9999;
-  width: 400px;
-  margin: 0 auto;
-  min-height: 200px;
   outline: none;
 }
 .overlay{
@@ -53,4 +51,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.box{
+  position: fixed;
+  z-index: 9999;
+  width: 400px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  margin-left: -200px;
+  margin-top: -150px;
+  background: #fff;
 }

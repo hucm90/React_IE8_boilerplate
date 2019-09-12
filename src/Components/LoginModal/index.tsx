@@ -37,7 +37,7 @@ class LoginModal extends Component<LoginModalProps, LoginModalState> {
         return (
             <Modal
                 centered={true}
-                visible={this.state.visible}
+                isOpen={this.state.visible}
                 onClose={this.props.onClose}>
             </Modal>
         );
