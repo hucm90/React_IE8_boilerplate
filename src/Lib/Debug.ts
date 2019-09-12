@@ -34,3 +34,12 @@ export function timeEnd(...args: any) {
     // eslint-disable-next-line no-console
     console && console.timeEnd(...args);
 }
+
+export default {
+    log,
+    error,
+    table,
+    warn,
+    time,
+    timeEnd,
+};

@@ -29,7 +29,14 @@ export default class GetScript extends React.Component<GetScriptProps> {
 }
 
 
+let loadedScript: string[] = [];
+
 export function getScript(src: string) {
+
+    if (loadedScript.includes(src)) {
+        return Promise.resolve();
+    }
+
     const script = document.createElement("script");
     // script.async = true;
     script.src = src;
@@ -48,7 +55,12 @@ export function getScript(src: string) {
             // @ts-ignore
             if (!script.readyState || /loaded|complete/.test(script.readyState)) {
                 resolve();
+                loadedScript.push(src);
             }
+        };
+
+        script.onerror = () => {
+            reject(new Error("第三放库加载失败: " + src));
         };
     });
 }

@@ -9,6 +9,7 @@ import DemoRadio from "./pages/radio";
 import DemoGrid from "./pages/grid";
 import DemoPagination from "./pages/pagination";
 import DemoModel from "./pages/model";
+import DemoUploader from "./pages/uploader";
 // import from ''
 
 interface PageDemoProps extends RouteComponentProps{
@@ -28,7 +29,7 @@ export default class PageDemo extends React.Component<PageDemoProps> {
         { id: 'tab', component: DemoTab },
         { id: 'heading', component: DemoTab },
         { id: 'model', component: DemoModel },
-        { id: 'upload', component: DemoTab },
+        { id: 'uploader', component: DemoUploader },
         { id: 'video', component: DemoVideo },
         { id: 'tip', component: DemoTab },
         { id: 'carousel', component: DemoTab },

@@ -29,7 +29,7 @@ const UrlLoaderRule = { test: /\.(png|jpg|gif|bmp|svg|swf|mp3|ogg)(\?.*$|$)/, lo
 
 const ExtractLoader = { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' }};
 const CssLoader = { loader: 'css-loader', options: {modules: {localIdentName: '[name]_[local]_[hash:base64:8]'}, sourceMap: true} };
-const CssLoaderRule = { test: /\.css$/, use: [ExtractLoader, CssLoader] };
+const CssLoaderRule = { test: /\.css$/, use: [ExtractLoader, { loader: 'css-loader', options: {sourceMap: true} }] };
 const SassLoaderRule = { test: /\.scss$/, use: [ExtractLoader, CssLoader, 'sass-loader']};
 
 // plugins
