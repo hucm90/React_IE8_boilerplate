@@ -10,6 +10,10 @@ import DemoGrid from "./pages/grid";
 import DemoPagination from "./pages/pagination";
 import DemoModal from "./pages/modal";
 import DemoUploader from "./pages/uploader";
+import DemoSpinner from "./pages/spinner";
+import DemoTitle from "./pages/title";
+import DemoTyper from "./pages/typer";
+import Title from "Components/Title";
 // import from ''
 
 interface PageDemoProps extends RouteComponentProps{
@@ -31,10 +35,16 @@ export default class PageDemo extends React.Component<PageDemoProps> {
         { id: 'modal', component: DemoModal },
         { id: 'uploader', component: DemoUploader },
         { id: 'video', component: DemoVideo },
-        { id: 'tip', component: DemoTab },
+        { id: 'message', component: DemoTab },
         { id: 'carousel', component: DemoTab },
+        { id: 'spinner', component: DemoSpinner },
+        { id: 'getScript', component: DemoTab },
+        { id: 'button', component: DemoTab },
+        { id: 'title', component: DemoTitle },
+        { id: 'typer', component: DemoTyper },
         { id: 'styles', component: DemoTab },
         { id: 'form', component: DemoTab },
+        { id: 'empty', component: DemoTab },
 
     ].sort((itemA: any, itemB: any) => (itemA.id > itemB.id ? 1 : -1));
 

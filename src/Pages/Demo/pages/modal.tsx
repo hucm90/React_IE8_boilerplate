@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Modal from "../../../Components/Modal";
+import Title from "Components/Title";
 
 export default class DemoModal extends React.Component {
 
@@ -11,6 +12,7 @@ export default class DemoModal extends React.Component {
     render() {
         return (
             <div>
+                <Title>Demo Modal</Title>
                 <h1>DemoModal</h1>
 
                 <div>

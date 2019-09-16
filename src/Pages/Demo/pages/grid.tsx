@@ -1,4 +1,5 @@
 import React from 'react';
+import Title from "Components/Title";
 
 const styles = {
     col: {
@@ -18,6 +19,8 @@ export default class DemoGrid extends React.Component {
     render() {
         return (
             <div className="container">
+                <Title>Demo Grid</Title>
+
                 <div className="row" style={styles.row}>
                     <div className="col c1-8" style={styles.col}>c1-8</div>
                     <div className="col c1-4" style={styles.col}>c1-4</div>

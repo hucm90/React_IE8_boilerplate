@@ -1,5 +1,6 @@
 import React from 'react';
 import CheckBox from 'Components/CheckBox';
+import Title from "Components/Title";
 
 export default class DemoCheckBox extends React.Component {
 
@@ -18,6 +19,7 @@ export default class DemoCheckBox extends React.Component {
     render() {
         return (
             <div>
+                <Title>Demo CheckBox</Title>
                 <h1>Demo CheckBox</h1>
 
                 <div>

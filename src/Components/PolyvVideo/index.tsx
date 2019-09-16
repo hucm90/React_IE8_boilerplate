@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react';
 import * as Debug from 'Lib/Debug';
-import GetScript from 'Components/GetScript';
+import GetScript from '../GetScript';
+import Spinner from '../Spinner';
 // eslint-disable-next-line no-undef
 
 
@@ -15,13 +16,12 @@ interface IPolyvVideoProps {
 
 class PolyvVideo extends Component<IPolyvVideoProps> {
 
-    private player: (PlayerInstance | undefined);
-    private ref = createRef<HTMLDivElement>();
+    player: (PlayerInstance | undefined);
+    ref = createRef<HTMLDivElement>();
 
-    constructor(props: IPolyvVideoProps) {
-        super(props);
-        this.state = {};
-    }
+    state = {
+        ready: false
+    };
 
     componentWillReceiveProps(props: IPolyvVideoProps) {
         if (!this.player) return;
@@ -48,8 +48,6 @@ class PolyvVideo extends Component<IPolyvVideoProps> {
             watchEndTime: this.props.endTime || 0,
         });
 
-        Debug.log(this.player);
-
         this.handlePlayEvents();
     };
 
@@ -61,6 +59,11 @@ class PolyvVideo extends Component<IPolyvVideoProps> {
         // @ts-ignore
         window['s2j_onPlayOver'] = () => {
             this.props.onPlayOver && this.props.onPlayOver();
+        };
+
+        // @ts-ignore
+        window['s2j_onReadyPlay'] = () => {
+            this.setState({ ready: true });
         };
     }
 
@@ -80,6 +83,7 @@ class PolyvVideo extends Component<IPolyvVideoProps> {
                     onError={this.onScriptLoadError}
                     onLoad={this.onScriptLoad}
                 />
+                {!this.state.ready && <Spinner size={40} />}
             </div>
         );
     }
