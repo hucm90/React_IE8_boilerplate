@@ -11,24 +11,21 @@ interface SearchState{
     searchKey: string;
 }
 
-class SearchForm extends React.Component<SearchInput, SearchState> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            keywordsShow: true,
-            searchKey: ""
-        };
-        this.renderKeywords = this.renderKeywords.bind(this);
-    }
+class SearchForm extends React.PureComponent<SearchInput, SearchState> {
 
-    renderKeywords() {
-        if (!this.state.keywordsShow || this.state.searchKey !== '') return null;
+    state = {
+        keywordsShow: true,
+        searchKey: ""
+    };
+
+    renderKeywords = () => {
+        if (!this.state.keywordsShow || this.state.searchKey !== '') return "";
         return (
             <div className={Style.KeyWords}>
-                {this.props.keywords.map((item) => { return <Link to={`/search/${item.keyword}`} key={item.keyword}><span>{item.keyword}</span></Link> })}
+                {this.props.keywords && this.props.keywords.map((item) => { return <Link to={`/search/${item.keyword}`} key={item.keyword}><span>{item.keyword}</span></Link> })}
             </div>
         );
-    }
+    };
 
     doSearch() {
         // this.props.history.push(`/search/${this.state.searchKey}`);

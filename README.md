@@ -15,3 +15,8 @@ ES6 IE8兼容配置
 
 
 ### anu 各版本的问题
+
+#### 1.6.0
+1. 组件返回null, undefined会引起页面渲染异常, 可以改成返回"" 
+2. webpack编译时出现Object.defineProperty:  引入司徒正美的polyfill import "object-defineproperty-ie8";
+

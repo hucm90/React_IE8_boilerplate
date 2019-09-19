@@ -37,21 +37,6 @@ class Navigation extends Component<INavigationProps, INavigationstate> {
             .catch(() => Debug.error("数据请求失败"));
     }
 
-    renderKeywords() {
-        if (!this.state.keywordsShow || this.state.searchKey !== '') return null;
-        return (
-            <div className={Style.KeyWords}>
-                {this.state.keywords.map(item => {
-                    return (
-                        <span onClick={() => {
-                            this.setState({ searchKey: item.keyword });
-                        }} key={item.keyword}>{item.keyword}</span>
-                    );
-                })}
-            </div>
-        );
-    }
-
     render() {
 
         return (

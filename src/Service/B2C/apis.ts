@@ -17,8 +17,9 @@ type Pagination<T> = ListData<T> & PageCount;
 interface IgetKeywords {
     keywords: Array<{keyword: string}>;
 }
+
 export const getKeywords = (num: number) => {
-    return Request.get<IgetKeywords>('/getKeywords', { params: { num: num }})
+    return Request.get<IgetKeywords>('getKeywords', { params: { num: num }})
         .then(res => res.data);
 };
 

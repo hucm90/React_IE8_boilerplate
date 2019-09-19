@@ -2,7 +2,8 @@ import React, { Component, useState, useEffect } from 'react';
 import { Link } from '@reach/router';
 import CourseCard, { ICourseCard } from 'Components/CourseCard';
 import CourseLink from 'Components/CourseLink';
-import * as Debug from 'Lib/Debug';
+import Debug from 'Lib/Debug';
+import useUserInfo from 'useHooks/useUserInfo';
 
 import style from './Home.scss';
 import { getCarouselList, getPlateCourseList } from "Service/B2C/apis";
@@ -28,6 +29,8 @@ function PageHome(props: any) {
     let [courseList, setCourseList] = useState<ICourseCard[]>([]);
     let [carouselList, setCarouselList] = useState<CarouselItem[]>([]);
 
+    let [userInfo, setUserInfo] = useUserInfo();
+
     useEffect(() => {
         getCarouselList()
             .then(res => setCarouselList(res))
@@ -42,6 +45,8 @@ function PageHome(props: any) {
     return (
         <div className="Home-CourseCard-wrap">
             <Title>首页</Title>
+
+            <p>UserName: {userInfo.name}  <Login /></p>
 
             <div>
                 <h1>Links</h1>
@@ -64,6 +69,18 @@ function PageHome(props: any) {
 
         </div>
     );
+}
+
+
+function Login() {
+
+    let [userInfo, setUserInfo] = useUserInfo();
+
+    const onClick = () => {
+        setUserInfo({ name: Math.random().toString() });
+    };
+
+    return <button onClick={onClick}>Login</button>;
 }
 
 // class PageHome extends Component<any, HomeState> {

@@ -43,8 +43,8 @@ export function Article() {
     return (
         <div>
             <h1 style={{ textAlign: 'center' }}><Text length={30} /></h1>
-            <p><Text length={200} /></p>
-            <p><Text length={400} /></p>
+            <div><Text length={200} /></div>
+            <div><Text length={400} /></div>
         </div>
     );
 }

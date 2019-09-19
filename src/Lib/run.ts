@@ -1,3 +1,4 @@
+import "object-defineproperty-ie8";
 import 'core-js/es/function';
 import 'core-js/es/object';
 import 'core-js/es/array';
