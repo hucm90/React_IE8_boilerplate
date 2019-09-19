@@ -1,8 +1,8 @@
 import React, { Component, createRef } from 'react';
-import * as Debug from 'Lib/Debug';
+import Debug from 'Lib/Debug';
 import GetScript from '../GetScript';
 import Spinner from '../Spinner';
-// eslint-disable-next-line no-undef
+import style from './video.scss';
 
 
 interface IPolyvVideoProps {
@@ -78,12 +78,14 @@ class PolyvVideo extends Component<IPolyvVideoProps> {
 
     render() {
         return (
-            <div ref={this.ref} id="PolyvVideo">
-                <GetScript src="https://player.polyv.net/script/polyvplayer.min.js"
-                    onError={this.onScriptLoadError}
-                    onLoad={this.onScriptLoad}
-                />
-                {!this.state.ready && <Spinner size={40} />}
+            <div className={`${style.video}`}>
+                <div ref={this.ref} id="PolyvVideo">
+                    <GetScript src="https://player.polyv.net/script/polyvplayer.min.js"
+                        onError={this.onScriptLoadError}
+                        onLoad={this.onScriptLoad}
+                    />
+                    {!this.state.ready && <Spinner size={40} />}
+                </div>
             </div>
         );
     }

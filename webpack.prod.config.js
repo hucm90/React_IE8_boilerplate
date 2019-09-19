@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const es3ifyPlugin = require('es3ify-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
@@ -41,7 +42,7 @@ const MiniCssExtractPluginInstance =  new MiniCssExtractPlugin({
     chunkFilename: '[id].css'
 });
 
-
+const CleanWebpackPluginInstance = new CleanWebpackPlugin();
 
 module.exports = {
     mode: Mode,
@@ -77,6 +78,7 @@ module.exports = {
         HtmlPluginInstance,
         MiniCssExtractPluginInstance,
         UglifyJsPluginInstance,
+        CleanWebpackPluginInstance,
     ],
 
     devtool: "none"

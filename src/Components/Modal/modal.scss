@@ -1,11 +1,10 @@
-.portal{
-
-}
+@import "~Components/SCSS/mixins";
 
 .content{
   position: relative;
   outline: none;
 }
+
 .overlay{
   position: fixed;
   overflow: auto;
@@ -14,13 +13,12 @@
   bottom: 0;
   left: 0;
   outline: 0;
-  background-color: rgba(0,0,0,0.65);
   height: 100%;
   z-index: 1000;
-  filter: alpha(opacity=50);
+  @include opacity-bg(rgba(0,0,0,0.65))
 }
+
 .close{
-  background-color: transparent;
   border: 0;
   outline: 0;
   padding: 0;
@@ -31,14 +29,16 @@
   height: 30px;
   width: 30px;
   cursor: pointer;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAQAAACROWYpAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfhCwgTOCJ/N5tPAAAA6ElEQVQ4y5XSsW0CYQyG4S80NBEFIyC6SCAmYAHGCCiMkAHSICUSK1DRMgM9LUqTIg2wQYRI3hQndMfd7x/b7iw/3SvGfPOOgvvEiol4BWAZokNOwKfosg3ygv4xFaIT4lc6R8XBzyv0ir38hpbYw2u0iu/xBr3FOZ6gdWzxJG3iFDdoCte5SdO45AtGHC1q4ZL/AL9pamPRZgfAhZn105I1fXUlSQ/qmT/Zms7sc9XlQ3zmMVfd/RAz0XoaNrmrYYt7qMl91OBemuR+muAR2uAxWuNiEKJV/iG+grTkF7HhwEuIFnzN2z9Hch0XvIhgyAAAAABJRU5ErkJggg==') no-repeat;
+  background: url(./img/close.png) no-repeat;
 }
+
 .header{
   margin-top: 20px;
   margin-bottom: 0;
   padding: 0 30px;
   line-height: 48px;
 }
+
 .title{
   overflow: hidden;
   text-overflow: ellipsis;
@@ -46,6 +46,7 @@
   font-size: 22px;
   color: #333;
 }
+
 .centered{
   position: absolute;
   top: 50%;

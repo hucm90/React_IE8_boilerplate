@@ -12,3 +12,6 @@ ES6 IE8兼容配置
 3. webpack@1.15.0  webpack-dev-server@1.16.5  babel-loader@6.4.1
 4. es3ify-loader (后来用es3ifyPlugin代替, 因为后者对sourcemap支持更好)
 5. React Router 2.3.0支持IE8 [https://github.com/ReactTraining/react-router/tree/v2.3.0/docs]
+
+
+### anu 各版本的问题

@@ -1,6 +1,7 @@
 /src/Lib/Router.js
 /node_modules
 /dist
+/scripts
 /webpack.config.js
 /webpack.prod.config.js
 /src/types.d.ts

@@ -4,12 +4,7 @@ import Request from './Lib/Request';
 import { BASE_URL } from 'Config';
 import "Components/SCSS/main.scss";
 import { LayoutMain } from "Components/Layouts";
-import { Page404, PageDemo, PageHome, PageNews } from "./Pages";
-
-interface UserInfo {
-    userName: string;
-    age: number;
-}
+import { Page404, PageDemo, PageNews, PageHome } from "./Pages";
 
 export default class App extends React.Component {
 

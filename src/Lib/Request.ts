@@ -6,12 +6,12 @@ type RequestInstance = Pick<AxiosInstance, 'get' | 'post'>;
 
 const defaultConfig: AxiosRequestConfig = {};
 
-function Request(baseURL: string): RequestInstance {
-    return axios.create({ ...defaultConfig, baseURL });
+function Request(baseURL: string, otherConfig?: AxiosRequestConfig): RequestInstance {
+    return axios.create({ ...defaultConfig, ...otherConfig, baseURL });
 }
 
 Request.get = <T = any>(url: string, config?: AxiosRequestConfig) => {
-    return FromPromise(axios.get<T>(url, { ...defaultConfig, ...config }));
+    return axios.get<T>(url, { ...defaultConfig, ...config });
 };
 
 Request.post = <T = any>(url: string, data?: any, config?: AxiosRequestConfig) => {
@@ -22,17 +22,3 @@ Request.defaults = defaultConfig;
 
 
 export default Request;
-
-
-function FromPromise<T>(promise: Promise<T>) {
-
-    const errorHandlers = [];
-    const successHandlers = [];
-
-    const response = {
-        addHandler: (handler: any) => errorHandlers.push(handler),
-        then: (callback: any) => {}
-    };
-
-    return Promise.resolve(promise);
-}

@@ -1,0 +1,11 @@
+.video{
+  position: relative;
+}
+
+.noprocess{
+  :global{
+    .pv-progress-wrap{
+      display: none;
+    }
+  }
+}

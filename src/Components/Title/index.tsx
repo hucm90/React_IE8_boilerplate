@@ -21,8 +21,11 @@ export default class Title extends React.PureComponent<TitleProps> {
         this.showDocumentTitle(nextProps.children);
     }
 
-    showDocumentTitle(text: any) {
+    showDocumentTitle(text: string) {
         document.title = text;
     }
 
+    render() {
+        return "";
+    }
 }

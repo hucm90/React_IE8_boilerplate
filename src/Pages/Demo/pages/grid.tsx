@@ -6,7 +6,7 @@ const styles = {
         padding: "30px 0",
         color: "#fff",
         'text-align': "center",
-        background: "rgba(0, 160, 233, 0.7)",
+        background: "rgb(0, 160, 233)",
         border: "1px #1890ff solid",
     },
     row: {
@@ -18,7 +18,7 @@ export default class DemoGrid extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container" style={{ width: "100%" }}>
                 <Title>Demo Grid</Title>
 
                 <div className="row" style={styles.row}>
