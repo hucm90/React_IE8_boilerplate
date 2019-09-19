@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Modal from "../../../Components/Modal";
+import Modal from "Components/Modal";
 import Title from "Components/Title";
 
 export default class DemoModal extends React.Component {

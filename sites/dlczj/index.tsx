@@ -1,4 +1,4 @@
 import render from 'Lib/run';
-import App from '../src/app';
+import App from '../standard/app';
 
 render(App);
