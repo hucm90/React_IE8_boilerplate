@@ -1,8 +1,10 @@
+import Debug from './Debug';
+
 type RequestError = any;
 // 未登陆或已退出
 export function HttpAuthError(error: RequestError) {
     if (error.response && error.response.status === 400) {
-        console.log(error.message);
+        Debug.log(error.message);
     } else {
         throw error;
     }
@@ -11,9 +13,9 @@ export function HttpAuthError(error: RequestError) {
 // 网络异常
 export function HttpNetworkError(error: RequestError) {
     if (error.response === undefined) {
-        console.log(error.message);
+        Debug.log(error.message);
     } else if (error.response && error.response.status > 403) {
-        console.log(error.message);
+        Debug.log(error.message);
     } else {
         throw error;
     }

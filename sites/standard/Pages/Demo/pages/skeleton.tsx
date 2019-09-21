@@ -1,7 +1,8 @@
 import React from 'react';
 import { Article, Line, Photo, Rect } from "Components/Skeleton";
+import { RouteComponentProps } from '@reach/router';
 
-export default function DemoSkeleton() {
+export default function DemoSkeleton(props: RouteComponentProps) {
 
     return (
         <div>
@@ -13,13 +14,13 @@ export default function DemoSkeleton() {
                 </div>
 
                 <div style={{ marginLeft: "120px" }}>
-                    <p><Line width="50%" /></p>
-                    <p><Line /></p>
-                    <p><Line /></p>
-                    <p><Line /></p>
+                    <div><Line width="50%" /></div>
+                    <div><Line /></div>
+                    <div><Line /></div>
+                    <div><Line /></div>
                 </div>
 
-                <p><Line /></p>
+                <div><Line /></div>
             </div>
 
             <div style={{ display: "flex" }}>

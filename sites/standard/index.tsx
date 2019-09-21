@@ -1,4 +1,5 @@
-import render from 'Lib/run';
+import render from 'Lib/Run';
 import App from './app';
+import Config from './Config';
 
-render(App);
+render(App, Config);

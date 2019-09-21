@@ -2,7 +2,7 @@ import React from 'react';
 // import { VideoCourse, FaceCourse, LiveCourse, TrainCourse } from '.';
 import { ICourseCard } from '.';
 
-import { formatHMS } from 'Lib/format';
+import { formatHMS } from 'Lib/Format';
 
 import bgImg from './img/background.jpg';
 import Style from './CourseCard.module.scss';

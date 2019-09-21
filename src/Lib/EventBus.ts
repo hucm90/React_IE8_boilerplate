@@ -22,9 +22,10 @@ export default class EventBus {
     trigger(event: string, data: any) {
         _.chain(this.listeners)
             .filter(listener => listener.event === event)
-            .each(listener => {
+            .each((listener) => {
                 const { callback } = listener;
                 callback(data);
+                // setTimeout(() => callback(data));
             });
     }
 }

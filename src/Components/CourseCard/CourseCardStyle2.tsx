@@ -3,7 +3,7 @@ import { ICourseCard } from '.';
 import bgImg from './img/background.jpg';
 import Style from './CourseCard.module.scss';
 import Button from 'Components/Button';
-import { dateFormat } from 'Lib/format';
+import { dateFormat } from 'Lib/Format';
 
 interface IProps {
     course: ICourseCard;

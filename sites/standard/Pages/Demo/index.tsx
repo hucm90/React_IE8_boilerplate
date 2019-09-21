@@ -17,12 +17,13 @@ import Title from "Components/Title";
 // import from ''
 
 interface PageDemoProps extends RouteComponentProps{
+    ['*']: string;
     component?: string;
 }
 
-export default class PageDemo extends React.Component<PageDemoProps> {
+export default function PageDemo(props: PageDemoProps) {
 
-    components = [
+    const components = [
 
         { id: 'skeleton', component: DemoSkeleton },
         { id: 'pagination', component: DemoPagination },
@@ -48,19 +49,16 @@ export default class PageDemo extends React.Component<PageDemoProps> {
 
     ].sort((itemA: any, itemB: any) => (itemA.id > itemB.id ? 1 : -1));
 
-    render() {
+    return (
+        <div className="container">
 
-        return (
-            <div className="container">
+            <ul className={style.nav}>
+                {components.map((item) => <li key={item.id}><Link to={"/demo/" + item.id}>{item.id}</Link></li>)}
+            </ul>
 
-                <ul className={style.nav}>
-                    {this.components.map((item) => <li key={item.id}><Link to={"/demo/" + item.id}>{item.id}</Link></li>)}
-                </ul>
-
-                <div className={style.main}>
-                    {this.components.filter(item => item.id === this.props.component).map((item) => <item.component key={item.id} />)}
-                </div>
+            <div className={style.main}>
+                {components.filter(item => item.id === props['*']).map((item) => <item.component key={item.id} />)}
             </div>
-        );
-    }
+        </div>
+    );
 }

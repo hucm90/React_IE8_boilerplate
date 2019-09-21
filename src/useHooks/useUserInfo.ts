@@ -2,14 +2,20 @@ import Store from '../Lib/Store';
 import useStore from './useStore';
 
 interface UserInfoState {
-    name: string;
+    isLogin: boolean;
+    userName: string;
+    trueName: string;
+    userPhoto: string;
 }
 
-let initState = {
-    name: 'menghao',
+let initState: UserInfoState = {
+    isLogin: false,
+    userName: '',
+    trueName: '',
+    userPhoto: '',
 };
 
-const userStore = new Store<UserInfoState>(initState);
+export const userStore = new Store<UserInfoState>(initState);
 
 export default function useUserInfo() {
 

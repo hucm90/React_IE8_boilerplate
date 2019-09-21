@@ -1,7 +1,8 @@
 import React from 'react';
 import PolyvVideo from 'Components/PolyvVideo';
+import { RouteComponentProps } from '@reach/router';
 
-export default function DemoVideo() {
+export default function DemoVideo(props: RouteComponentProps) {
 
     return (
         <div>

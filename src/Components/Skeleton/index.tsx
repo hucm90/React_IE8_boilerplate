@@ -17,7 +17,7 @@ export interface LineProps {
 }
 
 export function Line({ width }: LineProps) {
-    return <div className={style.text} style={{ width }}>&nbsp;</div>;
+    return <div className={`${style.text} ${style.line}`} style={{ width }}>&nbsp;</div>;
 }
 
 

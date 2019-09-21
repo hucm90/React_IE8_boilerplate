@@ -1,7 +1,9 @@
 import React from 'react';
 
+type childrenType = string | string[];
+
 interface TitleProps {
-    children: any;
+    children: childrenType;
 }
 
 export default class Title extends React.PureComponent<TitleProps> {
@@ -21,8 +23,8 @@ export default class Title extends React.PureComponent<TitleProps> {
         this.showDocumentTitle(nextProps.children);
     }
 
-    showDocumentTitle(text: string) {
-        document.title = text;
+    showDocumentTitle(children: childrenType) {
+        document.title = React.Children.toArray(children).join("");
     }
 
     render() {

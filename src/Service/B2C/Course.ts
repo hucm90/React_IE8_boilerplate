@@ -1,6 +1,5 @@
 import Request from 'Lib/Request';
 import { BASE_URL } from "Config";
-import { HttpAuthError, HttpNetworkError, HttpError } from 'Lib/ErrorHandler';
 
 interface ICourseInfo {
     courseId: number;

@@ -1,13 +1,12 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from '@reach/router';
 import CourseCard, { ICourseCard } from 'Components/CourseCard';
 import CourseLink from 'Components/CourseLink';
 import Debug from 'Lib/Debug';
 import useUserInfo from 'useHooks/useUserInfo';
-
-import style from './Home.scss';
 import { getCarouselList, getPlateCourseList } from "Service/B2C/apis";
 import Title from "Components/Title";
+import useConfig from "useHooks/useConfig";
 
 interface CarouselItem {
     address: string;
@@ -30,6 +29,7 @@ function PageHome(props: any) {
     let [carouselList, setCarouselList] = useState<CarouselItem[]>([]);
 
     let [userInfo, setUserInfo] = useUserInfo();
+    let { name, Tip } = useConfig();
 
     useEffect(() => {
         getCarouselList()
@@ -44,9 +44,13 @@ function PageHome(props: any) {
 
     return (
         <div className="Home-CourseCard-wrap">
-            <Title>首页</Title>
+            <Title>{name} - 首页</Title>
 
-            <p>UserName: {userInfo.name}  <Login /></p>
+            <p>UserName: {userInfo.userName}  <Login /></p>
+
+            <p>AppName: {name}</p>
+
+            {Tip && <Tip />}
 
             <div>
                 <h1>Links</h1>
@@ -77,56 +81,10 @@ function Login() {
     let [userInfo, setUserInfo] = useUserInfo();
 
     const onClick = () => {
-        setUserInfo({ name: Math.random().toString() });
+        setUserInfo({ ...userInfo, userName: Math.random().toString() });
     };
 
     return <button onClick={onClick}>Login</button>;
 }
-
-// class PageHome extends Component<any, HomeState> {
-//
-//     constructor(props: any) {
-//         super(props);
-//         this.state = {
-//             visible: true,
-//             carouselList: [],
-//             courseList: [],
-//         };
-//     }
-//
-//     componentWillMount() {
-//
-//         getCarouselList()
-//             .then(res => this.setState({ carouselList: res }))
-//             .catch(() => Debug.error("数据请求失败"));
-//
-//         getPlateCourseList(7, 5)
-//             .then(res => this.setState({ courseList: res }))
-//             .catch(() => Debug.error("数据请求失败1"));
-//     }
-//
-//     render() {
-//
-//         return (
-//             <div className="Home-CourseCard-wrap">
-//
-//                 <div>
-//                     <h1>Links</h1>
-//
-//                     <Link to="/demo/tab">Demos</Link> |
-//                     <Link to="/news">News</Link>
-//                 </div>
-//
-//                 {this.state.courseList.map((course, index) => (
-//                     <div key={index} className={style['Home-CourseCard-item']}>
-//                         <CourseLink courseId={course.courseId} modality={course.modality || 1}>
-//                             <CourseCard courseType={1} course={course} />
-//                         </CourseLink>
-//                     </div>
-//                 ))}
-//             </div>
-//         );
-//     }
-// }
 
 export default PageHome;

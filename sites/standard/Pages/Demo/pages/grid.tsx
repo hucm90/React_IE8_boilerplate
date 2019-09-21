@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from "Components/Title";
+import { RouteComponentProps } from '@reach/router';
 
 const styles = {
     col: {
@@ -14,7 +15,7 @@ const styles = {
     }
 };
 
-export default class DemoGrid extends React.Component {
+export default class DemoGrid extends React.Component<RouteComponentProps> {
 
     render() {
         return (
